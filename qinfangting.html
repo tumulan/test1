@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>沁芳亭</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+        }
+        .game-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: url('img/qinfangting.jpg') no-repeat center center/cover;
+
+        }
+        .game-container img{
+        	position:absolute;
+        	left:80%;
+        	top:50%;
+        }
+        .dialogue-box {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height:20%;
+            color:white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background: url('img/duihuakuang.png') no-repeat center center/cover;
+            opacity: 0.8;
+        }
+        
+        .character-name {
+            font-weight: bold;
+            color: #8B0000;
+            position:absolute;
+            top:64.9%;
+            left:9.3%;
+            opacity: 0.9;
+            border-radius: 10px;
+            text-align: center;
+            padding-top:20px;
+            font-size:26px;
+            width:200px;
+            height:50px;
+            background: url('img/duihuakuangbeijing.png') no-repeat center center/cover;
+        }
+        .dialogue-text {
+            margin-top: 10px;
+            padding-left:150px;
+            padding-right:100px;
+            font-size:30px;
+            color:black;
+            font-size:25px;
+            font-family: "宋体";
+        }
+        .choices-container {
+            position: absolute;
+            top: 50%;
+            left: 38%;
+            width:400px;
+            height:200px;
+            transform: translate(-50%, -50%);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+           
+        }
+        .choice {
+           background: url('img/duihuakuangbeijing.png') no-repeat center center/cover;
+            width:400px;
+           opacity: 0.7;
+            position:absolute;
+            left:40%;
+            top:50%;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            transition: background 0.3s;
+            margin: 10px 0; /* Add vertical spacing between choices */
+        }
+        
+        
+        .choice:hover {
+            background: url('img/duihuakuangbeijing.png') no-repeat center center/cover;
+            opacity: 1;
+        }
+       
+        .character {
+            position: absolute;
+            bottom: 110px; /* just above the dialogue box */
+            left: 20%;
+            transform: translateX(-50%);
+            max-height: 70%;
+        }
+        .tiaozhuan{
+        	width:200px;
+        	height:100px;
+        	position:absolute;
+        	left:90%;
+        	top:80%;
+        }
+        button{
+        	position:absolute;
+        	width:100px;
+        	top:80%;
+        	left:90%;
+        	font-size:20px;
+        	background-color:white;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+    	<div class="character-name">  </div>
+      
+        <div class="dialogue-box" id="myDiv">
+        	
+        	<button onclick="nextStep()">下一步</button>
+
+            
+            <p class="dialogue-text">贾母拣了一朵大红的簪在鬓上，因回头看见了刘姥姥</p>
+            
+ 			 
+          
+        </div>
+        <div class="choices-container">
+            <button class="choice" onclick="showNextText()">点击为刘姥姥簪花</button>
+
+            <audio id="keySound" src="刘姥姥音频"></audio>
+            
+        </div>
+    </div>
+
+    <script>
+        
+    var texts = [
+           "（笑）过来带花儿。",
+           "（笑）让我打扮你。"
+        ];
+
+        var currentIndex = 0; // 当前文本数组的索引
+
+        // 角色名数组
+        var characterNames = [
+            "贾母",
+            "凤姐儿"
+        ];
+
+        function nextStep() {
+            var div = document.getElementById('myDiv');
+            var paragraph = div.querySelector('.dialogue-text'); // 获取对话内容的 <p> 元素
+            var characterName = document.querySelector('.character-name'); // 获取角色名的元素
+			var choicesContainer = document.querySelector('.choices-container'); // 获取选择按钮容器
+            if (currentIndex < texts.length) {
+                paragraph.textContent = texts[currentIndex];
+                characterName.textContent = characterNames[currentIndex]; // 更新角色名
+                currentIndex++;
+            }  if (currentIndex >= texts.length) {
+            // 如果已经显示完所有文本，隐藏下一步按钮
+            div.querySelector('button').style.display = 'none';
+            // 同时显示选择按钮容器
+            choicesContainer.style.display = 'block';
+        }
+        }
+
+        function showNextText() {
+        var paragraph = document.querySelector('.dialogue-text'); // 获取对话内容的 <p> 元素
+
+        // 点击按钮显示另一段文本，这里示例直接显示下一段文本
+        if (currentIndex < texts.length) {
+            paragraph.textContent = "点击按钮后显示的另一段文本。";
+            currentIndex++; // 这里可以根据实际需要更新索引
+        }
+
+        // 播放音频并在5秒后跳转页面
+        var audio = document.getElementById('keySound');
+        if (audio) {
+            audio.src = 'click_1.mp3'; // 设置音频文件路径
+            audio.play();
+
+            // 延迟5秒后跳转页面
+            setTimeout(function() {
+                window.location.href = 'ditu.html'; // 要跳转的页面地址
+            }, 500); // 延迟5秒
+        }
+    }
+    </script>
+</body>
+</html>

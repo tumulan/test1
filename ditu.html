@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大观园地图</title>
+<style>
+  body, html {
+    height: 100%;
+    margin: 0;
+    overflow: hidden; /* 隐藏页面的滚动条 */
+    background: url('img/ditu1.png') no-repeat center center/cover;
+  }
+  #movingImage {
+    position: absolute;
+    transition: left 3s ease, top 3s ease;
+}
+  .background {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .background-image {
+    width: 100%;
+    height: 100%;
+     z-index: 1; /* 背景图片位于最底层 */
+  }
+  
+  .moving-image {
+    position: absolute;
+	height: 200px;
+	width: 100px;
+    top: 50%;
+    left: 5%;
+    transform: translate(-50%, -50%);
+    cursor: move; /* 设置鼠标为移动样式，以提示用户可以拖动 */
+   z-index: 2; /* 移动的图片位于最上层 */
+  }
+ 
+  .interactive-image1 {
+      position: absolute;
+      left: 34.5%; /* 调整图片位置 */
+      top: 32%; /* 调整图片位置 */
+      cursor: pointer;
+      max-width:auto;
+      max-height:auto;
+       transition: box-shadow 0.3s ease; 
+       
+  }
+ .interactive-image2 {
+      position: absolute;
+      left: 45.5%; /* 调整图片位置 */
+      top: 14.5%; /* 调整图片位置 */
+      cursor: pointer;
+      max-width:auto;
+      max-height:auto;
+      transition: box-shadow 0.3s ease; /* 添加过渡效果，使发光效果平滑 */
+  }
+ 
+ .interactive-image3 {
+      position: absolute;
+      left: 25%; /* 调整图片位置 */
+      top: 11%; /* 调整图片位置 */
+      cursor: pointer;
+      max-width:auto;
+      max-height:auto;
+      transition: box-shadow 0.3s ease; /* 添加过渡效果，使发光效果平滑 */
+  }
+
+ .interactive-image4 {
+      position: absolute;
+      left: 76.5%; /* 调整图片位置 */
+      top: 34%; /* 调整图片位置 */
+      cursor: pointer;
+      max-width:250px;
+      max-height:auto;
+      transition: box-shadow 0.3s ease; /* 添加过渡效果，使发光效果平滑 */
+  }
+
+ .interactive-image5 {
+      position:  absolute;
+      left: 34%; /* 调整图片位置 */
+      top: 59%; /* 调整图片位置 */
+      cursor: pointer;
+      max-width:auto;
+      max-height:auto;
+      transition: box-shadow 0.3s ease; /* 添加过渡效果，使发光效果平滑 */
+  }
+  .interactive-image6 {
+      position:  absolute;
+      left: 58.5%; /* 调整图片位置 */
+      top: 63.5%; /* 调整图片位置 */
+      cursor: pointer;
+      max-width:auto;
+      max-height:auto;
+      transition: box-shadow 0.3s ease; /* 添加过渡效果，使发光效果平滑 */
+  }
+  .fangzi1 :hover{
+  	 box-shadow: 0 0 50px gold; /* 发光效果的阴影 */
+  	transform: scale(1.4); /* 将图片放大到110% */
+  }
+  .fangzi1{
+  	 z-index: 3; /* 可点击的图片位于中间层 */
+  }
+  
+  #canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* 确保画布不会阻止鼠标事件传递到背景图片 */
+  }
+</style>
+</head>
+<body>
+  <div class="background" id="background">
+    <!-- 背景图片 -->
+   
+    <!-- 可移动的图片 -->
+    <img src="img/liu.png" alt="Moving Image" class="moving-image" id="movingImage">
+    <!-- 用于绘制轨迹的画布 -->
+    <canvas id="canvas" width="800" height="600"></canvas>
+  </div>
+  <div class="fangzi1">
+	  
+	            <img src="img/xiaoxiangguan1.png" alt="Clickable Image1" class="interactive-image1" onclick=" moveAndRedirect(this) ">
+	 <img src="img/nuanxiangwu1.png" alt="Clickable Image2" class="interactive-image2" onclick=" moveAndRedirect(this) ">
+	 <img src="img/qinfangting1.png" alt="Clickable Image3" class="interactive-image3" onclick=" moveAndRedirect(this) ">
+	  <img src="img/xiaocuitang1.png" alt="Clickable Image4" class="interactive-image4" onclick=" moveAndRedirect(this) ">
+	  <img src="img/yihongyuan1.png" alt="Clickable Image5" class="interactive-image5" onclick=" moveAndRedirect(this) ">
+	  <img src="img/longcuian1.png" alt="Clickable Image6" class="interactive-image6" onclick=" moveAndRedirect(this) ">
+	 
+  </div>
+<script>
+   function moveAndRedirect(clickedImage) {
+        var liuImage = document.getElementById('movingImage');
+
+        // 获取点击图片的位置
+        var imageRect = clickedImage.getBoundingClientRect();
+        var imageLeft = imageRect.left + window.scrollX;
+        var imageTop = imageRect.top + window.scrollY;
+
+        // 移动liu.png到点击图片的位置
+        liuImage.style.left = imageLeft + 'px';
+        liuImage.style.top = imageTop+50 + 'px';
+        liuImage.style.display = 'block'; // 显示liu.png
+
+         // 根据点击的不同图片跳转到不同的链接
+        var targetUrl;
+        switch (clickedImage.alt) {
+            case 'Clickable Image1':
+                targetUrl = 'xiaoxiangguan.html'; // 替换成第一张图片的目标链接
+                break;
+            case 'Clickable Image2':
+                targetUrl = 'nuanxiangwu.html'; // 替换成第二张图片的目标链接
+                break;
+            case 'Clickable Image3':
+                targetUrl = 'qinfangting.html'; // 替换成第三张图片的目标链接
+                break;
+            case 'Clickable Image4':
+                targetUrl = 'xiaocuitang.html'; // 替换成第四张图片的目标链接
+                break;
+            case 'Clickable Image5':
+                targetUrl = 'yihongyuan.html'; // 替换成第五张图片的目标链接
+                break;
+            case 'Clickable Image6':
+                targetUrl = 'longcuian.html'; // 替换成第六张图片的目标链接
+                break;
+           
+        }
+
+        // 3秒后跳转到目标链接
+        setTimeout(function() {
+            window.location.href = targetUrl;
+        }, 3000);
+    }
+</script>
+</body>
+</html>

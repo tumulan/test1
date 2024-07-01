@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>刘姥姥进大观园</title>
+<style>
+  /* CSS部分 */
+  body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+        }
+        
+  .slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+  }
+
+  .slide {
+    display: none;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .slide.active {
+    display: block;
+  }
+        .choices-container {
+            position: absolute;
+            top: 50%;
+            left: 40%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+		.choice {
+		    background: url('img/juanzhou.png') no-repeat center center/cover;
+		    height: 70px;
+		    width: 350px;
+		    opacity: 0.9;
+		    color: brown; /* 更改字体颜色为brown */
+		    position: absolute;
+			font-family: SimSun, sans-serif; /* 设置字体为宋体 */
+			font-weight:bold;
+		    left: 50%;
+		    top: 50%;
+		    border-radius: 15px;
+		    cursor: pointer;
+		    border: none;
+		    text-align: center;
+		    font-size: 30px;
+		    transition: background 0.3s;
+		    margin: 10px 0; /* 添加垂直间距 */
+		}
+          .choice:hover {
+            background: url('img/juanzhou.png') no-repeat center center/cover;
+            opacity: 1;
+	    transform: scale(1.1); /* 悬停时放大 10% */
+        }
+</style>
+</head>
+<body>
+	<div class="slideshow-container">
+		 
+	
+  <!-- HTML部分 -->
+  <img class="slide active" src="img/1.jpg" alt="Image 1">
+  <img class="slide" src="img/2.jpg" alt="Image 2">
+  <img class="slide" src="img/3.jpg" alt="Image 3">
+  <img class="slide" src="img/4.jpg" alt="Image 4">
+  <img class="slide" src="img/5.jpg" alt="Image 5">
+  <img class="slide" src="img/6.jpg" alt="Image 6">
+  <img class="slide" src="img/7.jpg" alt="Image 7">
+  <img class="slide" src="img/8.jpg" alt="Image 8">
+  <img class="slide" src="img/9.jpg" alt="Image 9">
+  <img class="slide" src="img/10.jpg" alt="Image 10">
+  <img class="slide" src="img/11.jpg" alt="Image 11">
+  <img class="slide" src="img/12.jpg" alt="Image 12">
+  <img class="slide" src="img/13.jpg" alt="Image 13">
+  <img class="slide" src="img/14.jpg" alt="Image 14">
+  <img class="slide" src="img/15.jpg" alt="Image 15">
+  <img class="slide" src="img/16.jpg" alt="Image 16">
+  <img class="slide" src="img/17.jpg" alt="Image 17">
+  <img class="slide" src="img/18.jpg" alt="Image 18">
+  <img class="slide" src="img/19.jpg" alt="Image 19">
+  <img class="slide" src="img/20.jpg" alt="Image 20">
+  <img class="slide" src="img/21.jpg" alt="Image 21">
+  <img class="slide" src="img/22.jpg" alt="Image 22">
+  <img class="slide" src="img/23.jpg" alt="Image 23">
+  <img class="slide" src="img/24.jpg" alt="Image 24">
+  <div class="choices-container">
+            <button class="choice"  onclick="navigateAndPlay()" onmouseover="nextSlide()">进入大观园</button>
+             <audio id="keySound" src="audio/gongji.mp3"></audio>
+        </div>
+
+  <!-- 可根据需要添加更多图片 -->
+</div>
+
+<script>
+   // JavaScript部分
+  document.addEventListener("DOMContentLoaded", function() {
+    const slides = document.querySelectorAll(".slide");
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+
+    // 函数定义，用于切换到下一张幻灯片
+    function nextSlide() {
+      slides[currentSlide].classList.remove("active");
+      currentSlide++;
+      if (currentSlide < totalSlides) {
+        slides[currentSlide].classList.add("active");
+      } else {
+        currentSlide = totalSlides - 1; // 定格在最后一张图片
+      }
+    }
+
+    // 初始化
+    slides[currentSlide].classList.add("active");
+    const slideInterval = setInterval(nextSlide, 120); // 每0.1秒切换一次
+
+    // 清除定时器的条件可根据需要进行调整
+    setTimeout(() => {
+      clearInterval(slideInterval);
+    }, totalSlides * 100); // 在所有图片播放一遍后停止
+
+  });
+ function navigateAndPlay() {
+      // 播放按键音效
+      playKeySound();
+
+      // 延时一段时间后进行页面跳转，以便听到按键音效
+      setTimeout(function() {
+        window.location.href = "ditu.html";
+      }, 3000); // 延时500毫秒跳转，可以根据需要调整
+    }
+
+    function playKeySound() {
+      const keySound = document.getElementById('keySound');
+      keySound.currentTime = 0; // 重置音频播放到开始位置，以便可以重复播放
+      keySound.play();
+    }
+</script>
+</body>
+</html>

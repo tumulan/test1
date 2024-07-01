@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+        }
+        .game-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: url('img/damen.jpg') no-repeat center center/cover;
+        }
+        .game-container img{
+        	position:absolute;
+        	left:80%;
+        	top:50%;
+        }
+        .dialogue-box {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height:20%;
+            background: ;
+            color:white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background: url('img/duihuakuang.png') no-repeat center center/cover;
+            opacity: 0.95;
+        }
+        
+        .character-name {
+            font-weight: bold;
+	    font-family: SimSun, sans-serif;
+            color: #8B0000;
+            position:absolute;
+            top:65%;
+            left:9.5%;
+            opacity: 0.95;
+            border-radius: 20px;
+            text-align: center;
+            padding-top:20px;
+            font-size:26px;
+            width:200px;
+            height:70px;
+            background: url('img/duihuakuangbeijing.png') no-repeat center center/cover;
+        }
+        .dialogue-text {
+            margin-top: 10px;
+            padding-left:150px;
+            padding-right:100px;
+            font-size:26px;
+            color:black;
+        }
+        .choices-container {
+            position: absolute;
+            top: 50%;
+            left: 40%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+		.choice {
+		    background: url('img/juanzhou.png') no-repeat center center/cover;
+		    height: 70px;
+		    width: 350px;
+		    opacity: 0.9;
+		    color: brown; /* 更改字体颜色为brown */
+		    position: absolute;
+			font-family: SimSun, sans-serif; /* 设置字体为宋体 */
+			font-weight:bold;
+		    left: 50%;
+		    top: 50%;
+		    border-radius: 15px;
+		    cursor: pointer;
+		    border: none;
+		    text-align: center;
+		    font-size: 30px;
+		    transition: background 0.3s;
+		    margin: 10px 0; /* 添加垂直间距 */
+		}
+        .choice:hover {
+           background: url('img/juanzhou.png') no-repeat center center/cover;
+            opacity: 1;
+	    transform: scale(1.1); /* 悬停时放大 10% */
+        }
+        .character {
+            position: absolute;
+            bottom: 110px; /* just above the dialogue box */
+            left: 20%;
+            transform: translateX(-50%);
+            max-height: 70%;
+        }
+        .tiaozhuan{
+        	width:200px;
+        	height:100px;
+        	position:absolute;
+        	left:90%;
+        	top:80%;
+        }
+        button{
+        	position:absolute;
+        	width:100px;
+        	top:80%;
+        	left:90%;
+        	font-size:20px;
+        	background-color:white;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+    	<div class="character-name">刘姥姥</div>
+        
+        <div class="dialogue-box" id="myDiv">
+        	
+        	<button onclick="nextStep()">下一步</button>
+
+            
+            <p class="dialogue-text">我，刘姥姥，一个乡下的老妪，说起我二进大观园的原因，那可真是说来话长。</p>
+            
+ 			 
+          
+        </div>
+        <div class="choices-container">
+            <button class="choice"  onclick="navigateAndPlay()">开启主线剧情</button>
+            <audio id="keySound" src="audio/click_1.mp3"></audio>
+        </div>
+    </div>
+
+    <script>
+        
+          // 文本内容数组
+    var texts = [
+      "记得头次去大观园，是家里头实在揭不开锅了，没法子，只好厚着脸皮去求求王夫人。那时，大观园对我来说，就像个天上的仙境，金碧辉煌，处处都是我不曾见过的繁华。",
+      "王夫人和凤姐儿都待我不薄，给了我二十两银子，还有那串青纱一吊钱的赏钱，这可真是雪中送炭啊！回家后，我按照凤姐儿的嘱咐，置办了些田地和庄子，日子也渐渐好过了起来。心里头一直念着他们的恩情，总想找个机会报答。",
+      "过了些日子，家里种的瓜果蔬菜都熟了，长得特别好。我心想，这大观园里的小姐们平日里吃的都是精细的东西，兴许会喜欢我们这些土特产。",
+      "再者，我也想再去看看那些小姐们，给她们带去些乡下的新鲜玩意儿，让她们也尝尝我们庄稼人的手艺。"
+    ];
+
+    var currentIndex = 0; // 当前文本数组的索引
+
+    function nextStep() {
+      var div = document.getElementById('myDiv');
+      var paragraph = div.querySelector('p'); // 获取 <p> 元素
+      var buttonContainer = div.querySelector('.button-container'); // 获取按钮容器
+
+      if (currentIndex < texts.length) {
+        paragraph.textContent = texts[currentIndex];
+        currentIndex++;
+      } else {
+        paragraph.textContent = "于是，我收拾了些瓜果蔬菜，又挑了几样乡下的小玩意儿，就再次进了大观园。这次去，心里头没了第一次的忐忑和紧张，更多的是期待和欢喜。";
+        // 如果到达最后一步，可以隐藏按钮或者执行其他操作
+        buttonContainer.style.display = 'none';
+      }
+    }
+    
+    function navigateAndPlay() {
+      // 播放按键音效
+      playKeySound();
+
+      // 延时一段时间后进行页面跳转，以便听到按键音效
+      setTimeout(function() {
+        window.location.href = "2jinmen.html";
+      }, 500); // 延时500毫秒跳转，可以根据需要调整
+    }
+
+    function playKeySound() {
+      const keySound = document.getElementById('keySound');
+      keySound.currentTime = 0; // 重置音频播放到开始位置，以便可以重复播放
+      keySound.play();
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>故事意外结束</title>
+<style>
+
+
+    .image {
+        display: block;
+        width: 89%;
+        height: auto;
+        object-fit: contain; /* 图片完整显示在容器内，保持比例 */
+    }
+    .centered-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 24px;
+        color: white;
+        text-align: center;
+        opacity: 0; /* 初始时隐藏文本 */
+        transition: opacity 1s ease; /* 设置渐变动画 */
+        z-index: 1; /* 确保文本位于图片之上 */
+        font-size: 60px;
+        font-family: 宋体;
+        font-weight: bolder;
+    }
+    .container:hover .centered-text {
+        opacity: 1; /* 鼠标悬停时显示文本 */
+    }
+
+    button{
+        background-color: rgba(240, 248, 255, 0.4);
+        border: none;
+        border-radius: 10px;
+        width: 200px;
+        height: 50px;
+        font-family: 宋体;
+        font-size: 30px;
+    }
+    button:hover{
+        background-color: #473f3f9b; /* 点击时的背景色变化 */
+        transform: translateY(2px); /* 点击时的垂直位移 */
+    }
+</style>
+</head>
+<body style="margin: 0px; height: 100%; background-color: rgb(14, 14, 14);overflow: hidden;">
+
+
+<div class="container">
+    
+    <img style="display: block;margin: 0 auto;" 
+    src="img/hh.jpg" width="85%" height="auto"  alt="啊哦，图片被外星人带走了">
+
+    <div class="centered-text">
+        <p>刘姥姥回到了家……<br><br>故事结束</p>  
+        <button onclick="goBack()">回到上一页</button>
+    </div>
+    
+</div>
+
+<script>
+
+
+    function goBack() {
+        window.history.back();
+    }
+    </script>
+</body>
+</html>

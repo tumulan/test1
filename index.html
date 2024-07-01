@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>刘姥姥进大观园</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+        }
+        .video-container video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            
+            width: 80%;
+            height: auto;
+        }
+        .next-page-button {
+          width: 150px;
+          height: 100px;
+          border-radius: 20px;
+          font-family: 宋体;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            border:none;
+            background-color: #9c0022e5;
+            border: #f7b40c;
+            color: #f7b40c;
+            font-size: 28px;
+            border: none;
+            cursor: pointer;
+           text-align: center;
+           
+        }
+        .next-page-button:hover {
+            background-color: #520000da; /* 点击时的背景色变化 */
+            transform: translateY(2px); /* 点击时的垂直位移 */
+        }
+        a{
+          text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <video id="myVideo" autoplay muted>
+            <source src="https://github.com/tumulan/video/assets/147024840/84e8564d-74de-4ef2-a80f-95f90d1155c1" type="video/mp4" alt="刘姥姥进大观园">
+    
+        </video>
+        
+    </div>
+    <a href="index1.html"><button id="nextPageButton" class="next-page-button">进入学习</button></a>
+</body>
+</html>
