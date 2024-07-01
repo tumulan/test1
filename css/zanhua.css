@@ -1,0 +1,543 @@
+body {
+    background: linear-gradient(to top left, #a5045a, #ea6465);
+    font-family: "Comfortaa", sans-serif;
+    overflow: hidden;
+  }
+  
+  
+  .main-content {
+    margin: 4em auto;
+    max-width: 900px;
+    min-width: 800px;
+    display: grid;
+    grid-template-columns: min-content auto max-content;
+    grid-template-rows: 600px;
+    background: #f7f7f7;
+    box-shadow: 0 1px 35px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .main-content *:before, .main-content *:after {
+    content: "";
+    position: absolute;
+  }
+  
+  .emoji-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    background: linear-gradient(to bottom, #fe6368, #ce3572);
+    border-radius: 8px 0 0 8px;
+  }
+  .emoji-name div {
+    display: inline-block;
+    letter-spacing: 6px;
+    font: 30px "Fredoka One", sans-serif;
+    width: 100%;
+    color: #f9f9f9;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
+  
+  .emoji-preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+  }
+  
+  .emoji-face {
+    width: 300px;
+    height: 400px;
+    background: url('character.jpg') no-repeat center center/cover;
+    margin: auto;
+    position: relative;
+    display: inline-block;
+  }
+
+  .hat,.hat1,.hat2,.hat3 {
+    position: absolute;
+    z-index: 8;
+  }
+  /* 第一朵花 */
+  .hat.flower1{
+    left: 0;
+    top: 50px;
+    bottom: 0;
+    width: 100px;
+    height: 100px;
+    background: url('flower1.png') no-repeat center center/cover;
+  }
+  .hat.flower2{
+    left: 0px;
+    top: 50px;
+    bottom: 0;
+    width: 100px;
+    height: 100px;
+    background: url('flower2.png') no-repeat center center/cover;
+  }
+  .hat.flower3{
+    left: 0px;
+    top: 50px;
+    bottom: 0;
+    width: 100px;
+    height: 100px;
+    background: url('flower3.png') no-repeat center center/cover;
+  }
+  .hat.flower4{
+    left: 0px;
+    top: 50px;
+    bottom: 0;
+    width: 100px;
+    height: 100px;
+    background: url('flower4.png') no-repeat center center/cover;
+  }
+  .hat.flower5{
+    left: 0px;
+    top: 50px;
+    bottom: 0;
+    width: 100px;
+    height: 100px;
+    background: url('flower5.png') no-repeat center center/cover;
+  }
+  .hat.flower6{
+    left: 0px;
+    top: 50px;
+    bottom: 0;
+    width: 100px;
+    height: 100px;
+    background: url('flower6.png') no-repeat center center/cover;
+  }
+  .hat.flower7{
+    left: 0px;
+    top: 50px;
+    bottom: 0;
+    width: 100px;
+    height: 100px;
+    background: url('flower7.png') no-repeat center center/cover;
+  }
+  .hat.flower8{
+    left: 0px;
+    top: 50px;
+    bottom: 0;
+    width: 100px;
+    height: 100px;
+    background: url('flower8.png') no-repeat center center/cover;
+  }
+  .hat.flower9{
+    left: 0px;
+    top: 50px;
+    bottom: 0;
+    width: 100px;
+    height: 100px;
+    background: url('flower9.png') no-repeat center center/cover;
+  }
+  .hat.flower10{
+    left: 0px;
+    top: 50px;
+    bottom: 0;
+    width: 100px;
+    height: 100px;
+    background: url('flower10.png') no-repeat center center/cover;
+  }
+  .hat.flower11{
+    left: 0px;
+    top: 50px;
+    bottom: 0;
+    width: 100px;
+    height: 100px;
+    background: url('flower11.png') no-repeat center center/cover;
+  }
+
+  /* 第二朵花 */
+  .hat1.flower1_1{
+    left: 50px;
+    top: 10px;
+    bottom: 0;
+    width: 120px;
+    height: 120px;
+    background: url('flower1.png') no-repeat center center/cover;
+  }
+  .hat1.flower2_1{
+    left: 50px;
+    top: 10px;
+    bottom: 0;
+    width: 100px;
+    height: 100px;
+    background: url('flower2.png') no-repeat center center/cover;
+  }
+  .hat1.flower3_1{
+    left: 50px;
+    top: 10px;
+    bottom: 0;
+    width: 120px;
+    height: 120px;
+    background: url('flower3.png') no-repeat center center/cover;
+  }
+  .hat1.flower4_1{
+    left: 50px;
+    top: 10px;
+    bottom: 0;
+    width: 120px;
+    height: 120px;
+    background: url('flower4.png') no-repeat center center/cover;
+  }
+  .hat1.flower5_1{
+    left: 50px;
+    top: 10px;
+    bottom: 0;
+    width: 120px;
+    height: 120px;
+    background: url('flower5.png') no-repeat center center/cover;
+  }
+  .hat1.flower6_1{
+    left: 50px;
+    top: 10px;
+    bottom: 0;
+    width: 120px;
+    height: 120px;
+    background: url('flower6.png') no-repeat center center/cover;
+  }
+  .hat1.flower7_1{
+    left: 50px;
+    top: 10px;
+    bottom: 0;
+    width: 120px;
+    height: 120px;
+    background: url('flower7.png') no-repeat center center/cover;
+  }
+  .hat1.flower8_1{
+    left: 50px;
+    top: 10px;
+    bottom: 0;
+    width: 120px;
+    height: 120px;
+    background: url('flower8.png') no-repeat center center/cover;
+  }
+  .hat1.flower9_1{
+    left: 50px;
+    top: 10px;
+    bottom: 0;
+    width: 120px;
+    height: 120px;
+    background: url('flower9.png') no-repeat center center/cover;
+  }
+  .hat1.flower10_1{
+    left: 50px;
+    top: 10px;
+    bottom: 0;
+    width: 120px;
+    height: 120px;
+    background: url('flower10.png') no-repeat center center/cover;
+  }
+  .hat1.flower11_1{
+    left: 50px;
+    top: 10px;
+    bottom: 0;
+    width: 120px;
+    height: 120px;
+    background: url('flower11.png') no-repeat center center/cover;
+  }
+
+  /* 第三朵花 */
+  .hat2.flower1_2{
+    left: 130px;
+    top: 10px;
+    bottom: 0;
+    width: 120px;
+    height: 120px;
+    background: url('flower1.png') no-repeat center center/cover;
+  }
+  .hat2.flower2_2{
+    left: 130px;
+    top: 10px;
+    bottom: 0;
+    width: 100px;
+    height: 100px;
+    background: url('flower2.png') no-repeat center center/cover;
+  }
+  .hat2.flower3_2{
+    left: 130px;
+    top: 10px;
+    bottom: 0;
+    width: 120px;
+    height: 120px;
+    background: url('flower3.png') no-repeat center center/cover;
+  }
+  .hat2.flower4_2{
+    left: 130px;
+    top: 10px;
+    bottom: 0;
+    width: 120px;
+    height: 120px;
+    background: url('flower4.png') no-repeat center center/cover;
+  }
+  .hat2.flower5_2{
+    left: 130px;
+    top: 10px;
+    bottom: 0;
+    width: 120px;
+    height: 120px;
+    background: url('flower5.png') no-repeat center center/cover;
+  }
+  .hat2.flower6_2{
+    left: 130px;
+    top: 10px;
+    bottom: 0;
+    width: 120px;
+    height: 120px;
+    background: url('flower6.png') no-repeat center center/cover;
+  }
+  .hat2.flower7_2{
+    left: 130px;
+    top: 10px;
+    bottom: 0;
+    width: 120px;
+    height: 120px;
+    background: url('flower7.png') no-repeat center center/cover;
+  }
+  .hat2.flower8_2{
+    left: 130px;
+    top: 10px;
+    bottom: 0;
+    width: 120px;
+    height: 120px;
+    background: url('flower8.png') no-repeat center center/cover;
+  }
+  .hat2.flower9_2{
+    left: 130px;
+    top: 10px;
+    bottom: 0;
+    width: 120px;
+    height: 120px;
+    background: url('flower9.png') no-repeat center center/cover;
+  }
+  .hat2.flower10_2{
+    left: 130px;
+    top: 10px;
+    bottom: 0;
+    width: 120px;
+    height: 120px;
+    background: url('flower10.png') no-repeat center center/cover;
+  }
+  .hat2.flower11_2{
+    left: 130px;
+    top: 10px;
+    bottom: 0;
+    width: 120px;
+    height: 120px;
+    background: url('flower11.png') no-repeat center center/cover;
+  }
+
+  /* 第四多花 */
+  .hat3.flower1_3{
+    left: 200px;
+    top: 50px;
+    bottom: 0;
+    width: 100px;
+    height: 100px;
+    background: url('flower1.png') no-repeat center center/cover;
+  }
+  .hat3.flower2_3{
+    left: 200px;
+    top: 50px;
+    bottom: 0;
+    width: 100px;
+    height: 100px;
+    background: url('flower2.png') no-repeat center center/cover;
+  }
+  .hat3.flower3_3{
+    left: 200px;
+    top: 50px;
+    bottom: 0;
+    width: 100px;
+    height: 100px;
+    background: url('flower3.png') no-repeat center center/cover;
+  }
+  .hat3.flower4_3{
+    left: 200px;
+    top: 50px;
+    bottom: 0;
+    width: 100px;
+    height: 100px;
+    background: url('flower4.png') no-repeat center center/cover;
+  }
+  .hat3.flower5_3{
+    left: 200px;
+    top: 50px;
+    bottom: 0;
+    width: 100px;
+    height: 100px;
+    background: url('flower5.png') no-repeat center center/cover;
+  }
+  .hat3.flower6_3{
+    left: 200px;
+    top: 50px;
+    bottom: 0;
+    width: 100px;
+    height: 100px;
+    background: url('flower6.png') no-repeat center center/cover;
+  }
+  .hat3.flower7_3{
+    left: 200px;
+    top: 50px;
+    bottom: 0;
+    width: 100px;
+    height: 100px;
+    background: url('flower7.png') no-repeat center center/cover;
+  }
+  .hat3.flower8_3{
+    left: 200px;
+    top: 50px;
+    bottom: 0;
+    width: 100px;
+    height: 100px;
+    background: url('flower8.png') no-repeat center center/cover;
+  }
+  .hat3.flower9_3{
+    left: 200px;
+    top: 50px;
+    bottom: 0;
+    width: 100px;
+    height: 100px;
+    background: url('flower9.png') no-repeat center center/cover;
+  }
+  .hat3.flower10_3{
+    left: 200px;
+    top: 50px;
+    bottom: 0;
+    width: 100px;
+    height: 100px;
+    background: url('flower10.png') no-repeat center center/cover;
+  }
+  .hat3.flower11_3{
+    left: 200px;
+    top: 50px;
+    bottom: 0;
+    width: 100px;
+    height: 100px;
+    background: url('flower11.png') no-repeat center center/cover;
+  }
+
+
+  .emoji-choices {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: calc(100%);
+    margin: 0 5px 0 0;
+    box-shadow: -3px 0px 50px 1px rgba(0, 0, 0, 0.1);
+  }
+  
+  .emoji-choices__header {
+    background: linear-gradient(to right, rgba(206, 53, 114, 0.4), #f7f7f7);
+    padding: 15px;
+    border-left: 5px solid #ce3572;
+    font-weight: 700;
+  }
+  .emoji-choices__header small {
+    font-size: 70%;
+    margin-left: 5px;
+  }
+  
+  .emoji-choices__group {
+    box-sizing: border-box;
+    padding: 10px 22px 10px 10px;
+    display: grid;
+    grid-row-gap: 8px;
+    grid-column-gap: 14px;
+    grid-template-columns: repeat(4, 75px);
+  }
+  
+  .emoji-choice__item {
+    flex: 1;
+    position: relative;
+    width: 100%;
+    height: 75px;
+    background: #ebebeb;
+    background-image: url(flowers.png);
+    border-radius: 4px;
+    cursor: pointer;
+    overflow: hidden;
+    border: 3px solid #ebebeb;
+    font-size: 12px;
+  }
+
+  .emoji-choice__item[data-type="hat"][data-name="flower1"],.emoji-choice__item[data-type="hat1"][data-name="flower1_1"],.emoji-choice__item[data-type="hat2"][data-name="flower1_2"],.emoji-choice__item[data-type="hat3"][data-name="flower1_3"]{
+    background-position: 0px 0px;
+  }
+
+  .emoji-choice__item[data-type="hat"][data-name="flower2"],.emoji-choice__item[data-type="hat1"][data-name="flower2_1"],.emoji-choice__item[data-type="hat2"][data-name="flower2_2"],.emoji-choice__item[data-type="hat3"][data-name="flower2_3"]{
+    background-position: -75px 0px;
+  }
+
+  .emoji-choice__item[data-type="hat"][data-name="flower3"],.emoji-choice__item[data-type="hat1"][data-name="flower3_1"],.emoji-choice__item[data-type="hat2"][data-name="flower3_2"],.emoji-choice__item[data-type="hat3"][data-name="flower3_3"] {
+    background-position: -150px 0px;
+  }
+
+  .emoji-choice__item[data-type="hat"][data-name="flower4"],.emoji-choice__item[data-type="hat1"][data-name="flower4_1"],.emoji-choice__item[data-type="hat2"][data-name="flower4_2"],.emoji-choice__item[data-type="hat3"][data-name="flower4_3"] {
+    background-position: -225px 0px;
+  }
+
+  .emoji-choice__item[data-type="hat"][data-name="flower5"],.emoji-choice__item[data-type="hat1"][data-name="flower5_1"],.emoji-choice__item[data-type="hat2"][data-name="flower5_2"],.emoji-choice__item[data-type="hat3"][data-name="flower5_3"] {
+    background-position: -300px 0px;
+  }
+
+  .emoji-choice__item[data-type="hat"][data-name="flower6"] ,.emoji-choice__item[data-type="hat1"][data-name="flower6_1"],.emoji-choice__item[data-type="hat2"][data-name="flower6_2"],.emoji-choice__item[data-type="hat3"][data-name="flower6_3"]{
+    background-position: -375px 0px;
+  }
+
+  .emoji-choice__item[data-type="hat"][data-name="flower7"],.emoji-choice__item[data-type="hat1"][data-name="flower7_1"],.emoji-choice__item[data-type="hat2"][data-name="flower7_2"],.emoji-choice__item[data-type="hat3"][data-name="flower7_3"] {
+    background-position: -450px 0px;
+  }
+  .emoji-choice__item[data-type="hat"][data-name="flower8"],.emoji-choice__item[data-type="hat1"][data-name="flower8_1"],.emoji-choice__item[data-type="hat2"][data-name="flower8_2"],.emoji-choice__item[data-type="hat3"][data-name="flower8_3"] {
+    background-position: -525px 0px;
+  }
+
+  .emoji-choice__item[data-type="hat"][data-name="flower9"],.emoji-choice__item[data-type="hat1"][data-name="flower9_1"],.emoji-choice__item[data-type="hat2"][data-name="flower9_2"],.emoji-choice__item[data-type="hat3"][data-name="flower9_3"] {
+    background-position: 0px -75px;
+  }
+
+  .emoji-choice__item[data-type="hat"][data-name="flower10"],.emoji-choice__item[data-type="hat1"][data-name="flower10_1"],.emoji-choice__item[data-type="hat2"][data-name="flower10_2"],.emoji-choice__item[data-type="hat3"][data-name="flower10_3"] {
+    background-position: -75px -75px;
+  }
+
+  .emoji-choice__item[data-type="hat"][data-name="flower11"],.emoji-choice__item[data-type="hat1"][data-name="flower11_1"],.emoji-choice__item[data-type="hat2"][data-name="flower11_2"],.emoji-choice__item[data-type="hat3"][data-name="flower11_3"] {
+    background-position: -150px -75px;
+  }
+
+
+
+
+
+  
+  .emoji-choice__item[data-name="no-hat"]{
+    background-image: none;
+  }
+.emoji-choice__item[data-name="no-hat"]:before{
+    content: "\29BB";
+    font-size: 40px;
+    color: #bbb;
+    margin: 15px 18px;
+  }
+
+  .selected {
+    border-color: #ce3572;
+  }
+  
+  .main-content ::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 10px;
+  }
+  .main-content ::-webkit-scrollbar-track {
+    background: #f6f6f6;
+    margin: 5px;
+  }
+  .main-content ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #a5045a, #ea6465);
+    border-radius: 10px;
+  }
+  .main-content ::-webkit-scrollbar-thumb:hover {
+    background: #a5045a;
+    border-radius: 10px;
+  }
+  
