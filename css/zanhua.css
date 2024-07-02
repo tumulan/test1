@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(to top left, #a5045a, #ea6465);
+    background: linear-gradient(to top left, #f4c38b, #fae0c2);
     font-family: "Comfortaa", sans-serif;
     overflow: hidden;
   }
@@ -27,7 +27,7 @@ body {
     align-items: center;
     justify-content: center;
     padding: 18px;
-    background: linear-gradient(to bottom, #fe6368, #ce3572);
+    background: linear-gradient(to bottom, #ebba82, #f6d2aa);
     border-radius: 8px 0 0 8px;
   }
   .emoji-name div {
@@ -429,9 +429,9 @@ body {
   }
   
   .emoji-choices__header {
-    background: linear-gradient(to right, rgba(206, 53, 114, 0.4), #f7f7f7);
+    background: linear-gradient(to right, #f4c38b, #e2d3c1);
     padding: 15px;
-    border-left: 5px solid #ce3572;
+    border-left: 5px solid #d7967b;
     font-weight: 700;
   }
   .emoji-choices__header small {
@@ -521,7 +521,7 @@ body {
   }
 
   .selected {
-    border-color: #ce3572;
+    border-color: #d7967b;
   }
   
   .main-content ::-webkit-scrollbar {
@@ -533,11 +533,12 @@ body {
     margin: 5px;
   }
   .main-content ::-webkit-scrollbar-thumb {
-    background: linear-gradient(to bottom, #a5045a, #ea6465);
+    background: linear-gradient(to bottom,#f4c38b, #e2d3c1);
+    padding: 15px;
     border-radius: 10px;
   }
   .main-content ::-webkit-scrollbar-thumb:hover {
-    background: #a5045a;
+    background: #d7967b;
     border-radius: 10px;
   }
   
