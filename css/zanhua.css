@@ -1,4 +1,4 @@
-body {
+html,body {
     background: linear-gradient(to top left, #f4c38b, #fae0c2);
     font-family: "Comfortaa", sans-serif;
     overflow: hidden;
