@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>页面加载动画</title>
+<style>
+	body, html {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    background: url("img/jzbg.jpg") no-repeat center center/cover;
+}
+
+.loading-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    
+}
+.progress-bar {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+
+}
+
+.progress {
+    width: 0%;
+    height: 20px;
+    background-color: #4CAF50;
+    border-radius: 4px;
+    display: none;
+}
+
+.moving-image {
+    position: absolute;
+    top: 20px;
+    left: 0px;
+    width: 600px;
+    height: 250px;
+    object-fit: contain;
+    transition: left 0.2s ease-in-out;
+}
+</style>
+</head>
+
+<body>
+    <div class="loading-container">
+        <div class="progress-bar">
+            <div class="progress"></div>
+            <img class="moving-image" src="img/boat.png" alt="Moving Image">
+        </div>
+    </div>
+</body>
+<script>
+    // 示例中的 JavaScript 代码
+const image = document.querySelector('.moving-image');
+image.style.transform = 'translateY(-180px)';
+
+	document.addEventListener('DOMContentLoaded', function() {
+    var progress = 0;
+    var progressBar = document.querySelector('.progress');
+    var movingImage = document.querySelector('.moving-image');
+
+    var interval = setInterval(function() {
+        progress += Math.random() * 10; // 模拟加载进度增加
+        progressBar.style.width = progress + '%';
+
+        // 跟随进度条移动的图片
+        movingImage.style.left = progress + '%';
+
+        if (progress >= 100) {
+            clearInterval(interval);
+            // 加载完成后的操作，例如跳转页面或隐藏加载动画等
+            // 这里可以添加代码来完成加载后的操作
+            setTimeout(function() {
+                // 示例：加载完成后隐藏加载界面
+                window.location.href = 'xiaocuitang.html';
+            }, 500);
+        }
+    }, 200); // 模拟加载间隔时间
+});
+</script>
+</html>
