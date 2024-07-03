@@ -9,7 +9,7 @@
     height: 100%;
     margin: 0;
     overflow: hidden; /* 隐藏页面的滚动条 */
-    background: url('img/ditu.png') no-repeat center center/cover;
+    background: url('img/ditu1.png') no-repeat center center/cover;
   }
   #movingImage {
     position: absolute;
@@ -40,8 +40,10 @@
  
   .interactive-image1 {
       position: absolute;
-      left: 34%; /* 调整图片位置 */
-      top: 30.5%; /* 调整图片位置 */
+	  height: 120px;
+	  width:220px;
+      left: 48.3%; /* 调整图片位置 */
+      top: 47.5%; /* 调整图片位置 */
       cursor: pointer;
       max-width:auto;
       max-height:auto;
@@ -50,8 +52,10 @@
   }
  .interactive-image2 {
       position: absolute;
-      left: 45.5%; /* 调整图片位置 */
-      top: 13%; /* 调整图片位置 */
+	  height: 120px;
+	  width:220px;
+      left: 47%; /* 调整图片位置 */
+      top: 22%; /* 调整图片位置 */
       cursor: pointer;
       max-width:auto;
       max-height:auto;
@@ -60,8 +64,10 @@
  
  .interactive-image3 {
       position: absolute;
-      left: 24.7%; /* 调整图片位置 */
-      top: 10%; /* 调整图片位置 */
+	  height: 120px;
+	  width:220px;
+      left: 25%; /* 调整图片位置 */
+      top: 17%; /* 调整图片位置 */
       cursor: pointer;
       max-width:auto;
       max-height:auto;
@@ -70,8 +76,10 @@
 
  .interactive-image4 {
       position: absolute;
-      left: 76%; /* 调整图片位置 */
-      top: 32.5%; /* 调整图片位置 */
+	  height: 120px;
+	  width:220px;
+      left: 68.5%; /* 调整图片位置 */
+      top: 57.5%; /* 调整图片位置 */
       cursor: pointer;
       max-width:250px;
       max-height:auto;
@@ -79,18 +87,22 @@
   }
 
  .interactive-image5 {
-      position: absolute;
-      left: 33.5%; /* 调整图片位置 */
-      top: 58.5%; /* 调整图片位置 */
+      position:  absolute;
+	  height: 120px;
+	  width:220px;
+      left: 32%; /* 调整图片位置 */
+      top: 61%; /* 调整图片位置 */
       cursor: pointer;
       max-width:auto;
       max-height:auto;
       transition: box-shadow 0.3s ease; /* 添加过渡效果，使发光效果平滑 */
   }
   .interactive-image6 {
-      position: absolute;
-      left: 57.7%; /* 调整图片位置 */
-      top: 62.5%; /* 调整图片位置 */
+      position:  absolute;
+	  height: 120px;
+	  width:220px;
+      left: 70%; /* 调整图片位置 */
+      top: 20%; /* 调整图片位置 */
       cursor: pointer;
       max-width:auto;
       max-height:auto;
@@ -98,7 +110,7 @@
   }
   .fangzi1 :hover{
   	 box-shadow: 0 0 50px gold; /* 发光效果的阴影 */
-  	transform: scale(1.1); /* 将图片放大到110% */
+  	transform: scale(1.4); /* 将图片放大到110% */
   }
   .fangzi1{
   	 z-index: 3; /* 可点击的图片位于中间层 */
@@ -119,18 +131,18 @@
     <!-- 背景图片 -->
    
     <!-- 可移动的图片 -->
-    <img src="liu.png" alt="Moving Image" class="moving-image" id="movingImage">
+    <img src="img/liu.png" alt="Moving Image" class="moving-image" id="movingImage">
     <!-- 用于绘制轨迹的画布 -->
     <canvas id="canvas" width="800" height="600"></canvas>
   </div>
   <div class="fangzi1">
 	  
-	            <img src="img/xiaoxiangguan.png" alt="Clickable Image1" class="interactive-image1" onclick=" moveAndRedirect(this) ">
-	 <img src="img/nuanxiangwu.png" alt="Clickable Image2" class="interactive-image2" onclick=" moveAndRedirect(this) ">
-	 <img src="img/qiushuangzhai.png" alt="Clickable Image3" class="interactive-image3" onclick=" moveAndRedirect(this) ">
-	  <img src="img/hengwuyuan.png" alt="Clickable Image4" class="interactive-image4" onclick=" moveAndRedirect(this) ">
-	  <img src="img/yihongyuan.png" alt="Clickable Image5" class="interactive-image5" onclick=" moveAndRedirect(this) ">
-	  <img src="img/longcuian.png" alt="Clickable Image6" class="interactive-image6" onclick=" moveAndRedirect(this) ">
+	            <img src="img/qinfangting1.png" alt="Clickable Image1" class="interactive-image1" onclick=" moveAndRedirect(this) ">
+	 <img src="img/xiaoxiangguan1.png" alt="Clickable Image2" class="interactive-image2" onclick=" moveAndRedirect(this) ">
+	 <img src="img/xiaocuitang1.png" alt="Clickable Image3" class="interactive-image3" onclick=" moveAndRedirect(this) ">
+	  <img src="img/longcuian1.png" alt="Clickable Image4" class="interactive-image4" onclick=" moveAndRedirect(this) ">
+	  <img src="img/yihongyuan1.png" alt="Clickable Image5" class="interactive-image5" onclick=" moveAndRedirect(this) ">
+	  <img src="img/hengwuyuan1.png" alt="Clickable Image6" class="interactive-image6" onclick=" moveAndRedirect(this) ">
 	 
   </div>
 <script>
@@ -151,22 +163,22 @@
         var targetUrl;
         switch (clickedImage.alt) {
             case 'Clickable Image1':
-                targetUrl = 'xiaoxiangguan.html'; // 替换成第一张图片的目标链接
+                targetUrl = 'qinfangting.html'; // 替换成第一张图片的目标链接
                 break;
             case 'Clickable Image2':
-                targetUrl = 'nuanxiangwu.html'; // 替换成第二张图片的目标链接
+                targetUrl = 'xiaoxiangguan.html'; // 替换成第二张图片的目标链接
                 break;
             case 'Clickable Image3':
-                targetUrl = 'qinfangting.html'; // 替换成第三张图片的目标链接
+                targetUrl = 'xiaocuitang.html'; // 替换成第三张图片的目标链接
                 break;
             case 'Clickable Image4':
-                targetUrl = 'hengwuyuan.html'; // 替换成第四张图片的目标链接
+                targetUrl = 'longcuian.html'; // 替换成第四张图片的目标链接
                 break;
             case 'Clickable Image5':
                 targetUrl = 'yihongyuan.html'; // 替换成第五张图片的目标链接
                 break;
             case 'Clickable Image6':
-                targetUrl = 'longcuian.html'; // 替换成第六张图片的目标链接
+                targetUrl = 'hengwuyuan.html'; // 替换成第六张图片的目标链接
                 break;
            
         }
