@@ -40,8 +40,10 @@
  
   .interactive-image1 {
       position: absolute;
-      left: 34.5%; /* 调整图片位置 */
-      top: 32%; /* 调整图片位置 */
+	  height: 120px;
+	  width:220px;
+      left: 48.3%; /* 调整图片位置 */
+      top: 47.5%; /* 调整图片位置 */
       cursor: pointer;
       max-width:auto;
       max-height:auto;
@@ -50,8 +52,10 @@
   }
  .interactive-image2 {
       position: absolute;
-      left: 45.5%; /* 调整图片位置 */
-      top: 14.5%; /* 调整图片位置 */
+	  height: 120px;
+	  width:220px;
+      left: 47%; /* 调整图片位置 */
+      top: 22%; /* 调整图片位置 */
       cursor: pointer;
       max-width:auto;
       max-height:auto;
@@ -60,8 +64,10 @@
  
  .interactive-image3 {
       position: absolute;
+	  height: 120px;
+	  width:220px;
       left: 25%; /* 调整图片位置 */
-      top: 11%; /* 调整图片位置 */
+      top: 17%; /* 调整图片位置 */
       cursor: pointer;
       max-width:auto;
       max-height:auto;
@@ -70,8 +76,10 @@
 
  .interactive-image4 {
       position: absolute;
-      left: 76.5%; /* 调整图片位置 */
-      top: 34%; /* 调整图片位置 */
+	  height: 120px;
+	  width:220px;
+      left: 68.5%; /* 调整图片位置 */
+      top: 57.5%; /* 调整图片位置 */
       cursor: pointer;
       max-width:250px;
       max-height:auto;
@@ -80,8 +88,10 @@
 
  .interactive-image5 {
       position:  absolute;
-      left: 34%; /* 调整图片位置 */
-      top: 59%; /* 调整图片位置 */
+	  height: 120px;
+	  width:220px;
+      left: 32%; /* 调整图片位置 */
+      top: 61%; /* 调整图片位置 */
       cursor: pointer;
       max-width:auto;
       max-height:auto;
@@ -89,8 +99,10 @@
   }
   .interactive-image6 {
       position:  absolute;
-      left: 58.5%; /* 调整图片位置 */
-      top: 63.5%; /* 调整图片位置 */
+	  height: 120px;
+	  width:220px;
+      left: 70%; /* 调整图片位置 */
+      top: 20%; /* 调整图片位置 */
       cursor: pointer;
       max-width:auto;
       max-height:auto;
@@ -125,12 +137,12 @@
   </div>
   <div class="fangzi1">
 	  
-	            <img src="img/xiaoxiangguan1.png" alt="Clickable Image1" class="interactive-image1" onclick=" moveAndRedirect(this) ">
-	 <img src="img/nuanxiangwu1.png" alt="Clickable Image2" class="interactive-image2" onclick=" moveAndRedirect(this) ">
-	 <img src="img/qinfangting1.png" alt="Clickable Image3" class="interactive-image3" onclick=" moveAndRedirect(this) ">
-	  <img src="img/xiaocuitang1.png" alt="Clickable Image4" class="interactive-image4" onclick=" moveAndRedirect(this) ">
+	            <img src="img/qinfangting1.png" alt="Clickable Image1" class="interactive-image1" onclick=" moveAndRedirect(this) ">
+	 <img src="img/xiaoxiangguan1.png" alt="Clickable Image2" class="interactive-image2" onclick=" moveAndRedirect(this) ">
+	 <img src="img/xiaocuitang1.png" alt="Clickable Image3" class="interactive-image3" onclick=" moveAndRedirect(this) ">
+	  <img src="img/longcuian1.png" alt="Clickable Image4" class="interactive-image4" onclick=" moveAndRedirect(this) ">
 	  <img src="img/yihongyuan1.png" alt="Clickable Image5" class="interactive-image5" onclick=" moveAndRedirect(this) ">
-	  <img src="img/longcuian1.png" alt="Clickable Image6" class="interactive-image6" onclick=" moveAndRedirect(this) ">
+	  <img src="img/hengwuyuan1.png" alt="Clickable Image6" class="interactive-image6" onclick=" moveAndRedirect(this) ">
 	 
   </div>
 <script>
@@ -151,22 +163,22 @@
         var targetUrl;
         switch (clickedImage.alt) {
             case 'Clickable Image1':
-                targetUrl = 'xiaoxiangguan.html'; // 替换成第一张图片的目标链接
+                targetUrl = 'qinfangting.html'; // 替换成第一张图片的目标链接
                 break;
             case 'Clickable Image2':
-                targetUrl = 'nuanxiangwu.html'; // 替换成第二张图片的目标链接
+                targetUrl = 'xiaoxiangguan.html'; // 替换成第二张图片的目标链接
                 break;
             case 'Clickable Image3':
-                targetUrl = 'qinfangting.html'; // 替换成第三张图片的目标链接
+                targetUrl = 'xiaocuitang.html'; // 替换成第三张图片的目标链接
                 break;
             case 'Clickable Image4':
-                targetUrl = 'xiaocuitang.html'; // 替换成第四张图片的目标链接
+                targetUrl = 'longcuian.html'; // 替换成第四张图片的目标链接
                 break;
             case 'Clickable Image5':
                 targetUrl = 'yihongyuan.html'; // 替换成第五张图片的目标链接
                 break;
             case 'Clickable Image6':
-                targetUrl = 'longcuian.html'; // 替换成第六张图片的目标链接
+                targetUrl = 'hengwuyuan.html'; // 替换成第六张图片的目标链接
                 break;
            
         }
