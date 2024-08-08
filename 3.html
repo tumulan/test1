@@ -59,10 +59,10 @@
             margin-top: 10px;
             padding-left:150px;
             padding-right:100px;
-            font-size:30px;
             color:black;
-            font-size:25px;
-            font-family: "宋体";
+            font-size:26px;
+            font-family: 宋体;
+            line-height: 35px;
         }
         .choices-container {
             position: absolute;
@@ -79,25 +79,28 @@
         .choice {
            background: url('img/juanzhou.png') no-repeat center center/cover;
             width:360px;
-	height:46px;
+	        height:46px;
            opacity: 0.85;
             position:absolute;
             left:40%;
-		border:none;
+		    border:none;
             top:50%;
             border-radius: 5px;
             cursor: pointer;
             text-align: center;
             transition: background 0.3s;
             margin: 10px 0; /* Add vertical spacing between choices */
+            font-family: 宋体;
+            font-size: 25px;
+            font-weight: 700;
         }
         
         .choice2 {
            background: url('img/juanzhou.png') no-repeat center center/cover;
             width:360px;
-           opacity: 0.85;
-		height:46px;
-	border:none;
+            opacity: 0.85;
+		    height:46px;
+	        border:none;
             position:absolute;
             left:40%;
             top:80%;
@@ -106,6 +109,9 @@
             text-align: center;
             transition: background 0.3s;
             margin: 10px 0; /* Add vertical spacing between choices */
+            font-family: 宋体;
+            font-size: 25px;
+            font-weight: 700;
         }
         .choice:hover {
             background: url('img/juanzhou.png') no-repeat center center/cover;
@@ -129,13 +135,35 @@
         	left:90%;
         	top:80%;
         }
-        button{
+        
+        .btn1{
         	position:absolute;
         	width:100px;
+            border-radius: 10px;
+            font-family: 宋体;
+            font-weight: 900;
         	top:80%;
         	left:90%;
         	font-size:20px;
         	background-color:white;
+            border: 1px solid black;
+            
+        }
+        .btn2{
+        	position:absolute;
+        	width:100px;
+            border-radius: 10px;
+            font-family: 宋体;
+            font-weight: 900;
+        	top:80%;
+        	left:80%;
+        	font-size:20px;
+        	background-color:white;
+            border: 1px solid black;
+            
+        }
+        button:hover{
+            background-color: antiquewhite;
         }
     </style>
 </head>
@@ -144,14 +172,10 @@
     	<div class="character-name">刘姥姥</div>
       
         <div class="dialogue-box" id="myDiv">
-        	
-        	<button onclick="nextStep()">下一步</button>
-
-            
+        	<button class="btn2" onclick="nextPage()">跳过</button>
+        	<button class="btn1" onclick="nextStep()">下一步</button>
             <p class="dialogue-text">姑娘好？</p>
             
- 			 
-          
         </div>
         <div class="choices-container">
             <button class="choice" onclick="navigateAndPlay('4laofuren.html', 'audio/click_1.mp3')">去拜见老夫人</button>
@@ -196,7 +220,9 @@
             
             "  "
         ];
-
+        function nextPage(){
+            window.location.href = "4laofuren.html";
+        }
         function nextStep() {
             var div = document.getElementById('myDiv');
             var paragraph = div.querySelector('.dialogue-text'); // 获取对话内容的 <p> 元素
