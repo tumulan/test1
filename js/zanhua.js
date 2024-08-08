@@ -59,6 +59,7 @@ $(".js-custom-item").on("keyup paste", function() {
 	var newDiv = '<div class="item custom">' + customItem + "</div>";
 	$(".emoji-face").append(newDiv);
 });
-function next(){
-    window.location.href = "qinfangting2.html";
-}
+$('#btn').click(function() {
+	// 这里替换为你要跳转的页面 URL
+	window.location.href = 'qinfangting2.html';
+});
