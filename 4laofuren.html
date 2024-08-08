@@ -57,8 +57,9 @@
         }
         .dialogue-text {
             margin-top: 10px;
-            
-            font-size:30px;
+            font-size:26px;
+            font-family: 宋体;
+            line-height: 40px;
             color:black;
             padding-left:150px;
             padding-right:100px;
@@ -89,6 +90,9 @@
             text-align: center;
             transition: background 0.3s;
             margin: 10px 0; /* Add vertical spacing between choices */
+            font-family: 宋体;
+            font-size: 25px;
+            font-weight: 700;
         }
         .choice2 {
            background: url('img/juanzhou.png') no-repeat center center/cover;
@@ -104,6 +108,9 @@
             text-align: center;
             transition: background 0.3s;
             margin: 10px 0; /* Add vertical spacing between choices */
+            font-family: 宋体;
+            font-size: 25px;
+            font-weight: 700;
         }
         .choice2:hover {
             background: url('img/juanzhou.png') no-repeat center center/cover;
@@ -128,14 +135,36 @@
         	left:90%;
         	top:80%;
         }
-        button{
+        .btn1{
         	position:absolute;
         	width:100px;
+            border-radius: 10px;
+            font-family: 宋体;
+            font-weight: 900;
         	top:80%;
         	left:90%;
         	font-size:20px;
         	background-color:white;
+            border: 1px solid black;
+            
         }
+        .btn2{
+        	position:absolute;
+        	width:100px;
+            border-radius: 10px;
+            font-family: 宋体;
+            font-weight: 900;
+        	top:80%;
+        	left:80%;
+        	font-size:20px;
+        	background-color:white;
+            border: 1px solid black;
+            
+        }
+        button:hover{
+            background-color: antiquewhite;
+        }
+ 
     </style>
 </head>
 <body>
@@ -144,10 +173,11 @@
       
         <div class="dialogue-box" id="myDiv">
         	
-        	<button onclick="nextStep()">下一步</button>
+        	<button class="btn2" onclick="nextPage()">跳过</button>
+        	<button class="btn1" onclick="nextStep()">下一步</button>
 
             
-            <p class="dialogue-text">(拜）请老寿星安！</p>
+            <p class="dialogue-text">（拜）请老寿星安！</p>
             
  			 
           
@@ -197,7 +227,9 @@
         "凤姐",
         ""
     ];
-
+    function nextPage(){
+            window.location.href = "zhuanchang.html";
+        }
      function nextStep() {
      	
         var div = document.getElementById('myDiv');

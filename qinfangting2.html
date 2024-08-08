@@ -132,20 +132,20 @@
 </head>
 <body>
     <div class="game-container">
-    	<div class="character-name">  </div>
+    	<div class="character-name">刘姥姥</div>
       
         <div class="dialogue-box" id="myDiv">
-        	
+    
         	<button onclick="nextStep()">下一步</button>
 
             
-            <p class="dialogue-text">贾母拣了一朵大红的簪在鬓上，因回头看见了刘姥姥</p>
+            <p class="dialogue-text">我这脑袋，不知道什么时候修了福，今儿也体面起来了。</p>
             
  			 
           
         </div>
         <div class="choices-container">
-            <button class="choice" onclick="showNextText()">点击为刘姥姥簪花</button>
+            <button class="choice" onclick="showNextText()">去潇湘馆</button>
 
             <audio id="keySound" src="刘姥姥音频"></audio>
             
@@ -155,16 +155,17 @@
     <script>
         
     var texts = [
-           "（笑）过来带花儿。",
-           "（笑）让我打扮你。"
+           "我虽老了，年轻的时候也风流，爱个花儿啊，粉儿啊的，今儿就当个老风流。",
+           "走，我带你们到潇湘馆去。"
+           
         ];
 
         var currentIndex = 0; // 当前文本数组的索引
 
         // 角色名数组
         var characterNames = [
-            "贾母",
-            "凤姐儿"
+            "刘姥姥",
+            "贾母"
         ];
 
         function nextStep() {
@@ -201,7 +202,7 @@
 
             // 延迟5秒后跳转页面
             setTimeout(function() {
-                window.location.href = 'zanhua.html'; // 要跳转的页面地址
+                window.location.href = 'xiaoxiangguan.html'; // 要跳转的页面地址
             }, 500); // 延迟5秒
         }
     }

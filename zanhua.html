@@ -1,22 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" >
-
 <head>
   <meta charset="UTF-8">
   <title>给刘姥姥簪花</title>
   <link href="https://fonts.googleapis.com/css?family=Comfortaa:400,700|Fredoka+One" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css'>
-
-      <link rel="stylesheet" href="css/zanhua.css">
-
-  
+  <link rel="stylesheet" href="css/zanhua.css">
 </head>
-
-<body>
-
+<body id="capture">
 <div class="main-content" id="myDiv">
   <div class="emoji-name"> 
     <div>刘姥姥</div>
@@ -31,8 +23,7 @@
       </div>
     </div>
   </div>
-
-  <div class="emoji-choices">
+  <div class="emoji-choices" >
 
     <div class="emoji-choices__header">第一朵花</div>
     <div class="emoji-choices__group">
@@ -95,10 +86,15 @@
       <div class="emoji-choice__item js-choice" data-type="hat3" data-multiple="no" data-name="flower11_3"></div>
     </div>
   </div>
+  
+  <button onclick="next()">完成</button>
+  <button id="saveButton">保存为图片</button>
+
 </div>
  <script src='js/JQuery.js'></script>
 
 <script  src="js/zanhua.js"></script>
+
 </body>
 
 </html>

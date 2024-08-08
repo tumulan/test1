@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>众人反应连线</title>
+<style>
+    html,body{
+        overflow: hidden;
+    }
+    .container {
+        margin: 0 auto;
+        display: flex; /* 使用 Flexbox 布局 */
+        height: 80vh; /* 设置容器高度为整个视口高度 */
+    }
+    .left-div{
+        flex: 1; /* 平分左右两个div的宽度 */
+
+        text-align: center;
+        
+        
+    }
+    .right-div {
+        flex: 1; /* 平分左右两个div的宽度 */
+
+        
+        
+    }
+    .left-div button{
+        background-color: rgb(247, 202, 140);
+        border-radius: 10px;
+        width:100px;
+        border: none;
+        margin: 10px;
+        padding: 6px 10px 6px 10px;
+        font-size: 20px;
+        font-family: 幼圆;
+        font-weight: 600;
+        color: rgb(63, 72, 72);
+    }
+    .right-div button{
+        background-color: rgb(247, 202, 140);
+        border-radius: 10px;
+        border: none;
+        margin: 12px;
+        padding: 6px 10px 6px 10px;
+        font-size: 20px;
+        font-family: 幼圆;
+        font-weight: 600;
+        color: rgb(63, 72, 72);
+    }
+    button:hover{
+        background-color: antiquewhite;
+        cursor: pointer;
+    }
+    .line {
+    position: absolute;
+    border: 1px solid black;
+    pointer-events: none; /* 防止线条干扰按钮的点击事件 */
+    z-index: -1; /* 将线条置于按钮下方 */
+}
+.correct-img, .incorrect-img {
+            display: none; /* 初始隐藏 */
+            position: absolute;
+            width: 400px;
+    
+            z-index: 100; /* 确保图片显示在顶层 */
+        }
+        .centered-indicator {
+    position: fixed;
+    top: 20%;
+    left: 30%;
+    
+    text-align: center;
+}
+
+</style>
+</head>
+<body>
+<h1 style="text-align: center;">众人反应对应连线</h1>
+<p style="font-family: 华文仿宋;">请先点击人物姓名，再点击人物反应。</p>
+<div class="container">
+    <div class="left-div">
+        <button>史湘云</button><br>
+        <button>林黛玉</button><br>
+        <button>贾宝玉</button><br>
+        <button>贾惜春</button><br>
+        <button>贾探春</button><br>
+        <button>贾母</button><br>
+        <button>薛姨妈</button><br>
+        <button>王夫人</button><br>
+        <button>凤姐</button><br>
+        <button>鸳鸯</button><br>
+    </div>
+    <div class="right-div">
+        <button>掌不住，一口茶都喷了出来</button><br>
+        <button>掌不住，口里的茶都喷了探春一裙子</button><br>
+        <button>笑岔了气，伏着桌子只叫“嗳哟”</button><br>
+        <button>滚到贾母怀里</button><br>
+        <button>笑的搂着叫“心肝”</button><br>
+        <button>用手指着凤姐儿，却说不出话来</button><br>
+        <button>离了座位，拉着他奶母，叫“揉揉肠子”</button><br>
+        <button>饭碗都合在迎春身上</button><br>
+        <button>掌着，还只管让刘姥姥</button><br>
+        
+    </div>  
+    <div class="centered-indicator">
+        <img class="correct-img" src="img/correct.png" alt="Correct" style="display: none;">
+        <img class="incorrect-img" src="img/incorrect.png" alt="Incorrect" style="display: none;">
+    </div>
+</div>
+
+<script>
+
+ document.addEventListener("DOMContentLoaded", function() {
+    const leftButtons = document.querySelectorAll(".left-div button");
+    const rightButtons = document.querySelectorAll(".right-div button");
+    const container = document.querySelector(".container");
+    let activeLeftButton = null; // 用于存储当前活动的左侧按钮
+    let lines = []; // 用于存储创建的连线
+
+    rightButtons.forEach(rightButton => {
+        rightButton.addEventListener("click", function(event) {
+            if (activeLeftButton) {
+                const leftButtonIndex = Array.from(leftButtons).indexOf(activeLeftButton);
+                const existingLine = lines.find(line => line.start === leftButtonIndex);
+                if (existingLine) {
+                    // 如果左侧按钮已经有连线，则删除原有连线
+                    container.removeChild(existingLine.element);
+                    lines = lines.filter(line => line !== existingLine);
+                }
+
+                const endRect = rightButton.getBoundingClientRect();
+                const endX = endRect.left;
+                const endY = endRect.top + endRect.height / 2;
+
+                const startRect = activeLeftButton.getBoundingClientRect();
+                const startX = startRect.right;
+                const startY = startRect.top + startRect.height / 2;
+
+                const correctConnection = isCorrectConnection(leftButtonIndex, Array.from(rightButtons).indexOf(rightButton));
+                createLine(startX, startY, endX, endY, leftButtonIndex, correctConnection);
+                updateRightButtonIndicator(rightButton, correctConnection);
+            }
+        });
+    });
+
+    leftButtons.forEach((leftButton, index) => {
+        leftButton.addEventListener("click", function() {
+            // 移除之前的激活状态
+            leftButtons.forEach(button => button.classList.remove('active'));
+            leftButton.classList.add('active');
+            activeLeftButton = leftButton; // 更新当前活动的左侧按钮
+        });
+    });
+
+    function createLine(startX, startY, endX, endY, leftButtonIndex, correct) {
+        const line = document.createElement('div');
+        line.classList.add('line');
+        line.classList.add(correct ? 'correct' : 'incorrect'); // 根据正确与否添加不同的类
+        line.style.left = `${startX}px`;
+        line.style.top = `${startY}px`;
+
+        const length = Math.sqrt(Math.pow(endX - startX, 2) + Math.pow(endY - startY, 2));
+        line.style.width = `${length}px`;
+        line.style.transformOrigin = 'left';
+        line.style.transform = `rotate(${Math.atan2(endY - startY, endX - startX)}rad)`;
+
+        container.appendChild(line);
+        
+        // 存储连线的信息，以便后续删除
+        lines.push({
+            start: leftButtonIndex,
+            element: line
+        });
+    }
+
+    function isCorrectConnection(leftIndex, rightIndex) {
+        // 这里可以根据具体的逻辑来判断连接是否正确，例如根据 leftIndex 和 rightIndex 进行逻辑判断
+        // 这里只是一个示例
+        return leftIndex === rightIndex;
+    }
+
+    function updateRightButtonIndicator(button, correct) {
+        // 清除之前的标记
+        button.classList.remove('correct', 'incorrect');
+        // 添加新的标记
+        if (correct) {
+            button.classList.add('correct');
+        } else {
+            button.classList.add('incorrect');
+        }
+    }
+});
+document.addEventListener("DOMContentLoaded", function() {
+    const leftButtons = document.querySelectorAll(".left-div button");
+    const rightButtons = document.querySelectorAll(".right-div button");
+    const container = document.querySelector(".container");
+    const centeredIndicator = document.querySelector(".centered-indicator");
+
+    leftButtons.forEach(leftButton => {
+        leftButton.addEventListener("click", function() {
+            leftButtons.forEach(btn => btn.classList.remove('active'));
+            leftButton.classList.add('active');
+        });
+    });
+
+    rightButtons.forEach(rightButton => {
+        rightButton.addEventListener("click", function() {
+            const activeLeftButton = document.querySelector(".left-div button.active");
+            if (activeLeftButton) {
+                const leftButtonIndex = Array.from(leftButtons).indexOf(activeLeftButton);
+                const correctConnection = isCorrectConnection(leftButtonIndex, Array.from(rightButtons).indexOf(rightButton));
+                
+                // 根据正确与否显示相应的提示图片
+                if (correctConnection) {
+                    showCorrectIndicator();
+                } else {
+                    showIncorrectIndicator();
+                }
+            }
+        });
+    });
+
+    function showCorrectIndicator() {
+        const correctImg = document.querySelector(".correct-img");
+        correctImg.style.display = 'block';
+        setTimeout(() => {
+            correctImg.style.display = 'none';
+        }, 1500); // 显示1.5秒后隐藏
+    }
+
+    function showIncorrectIndicator() {
+        const incorrectImg = document.querySelector(".incorrect-img");
+        incorrectImg.style.display = 'block';
+        setTimeout(() => {
+            incorrectImg.style.display = 'none';
+        }, 1500); // 显示1.5秒后隐藏
+    }
+
+    function isCorrectConnection(leftIndex, rightIndex) {
+        // 定义每对按钮的正确连接关系
+        const correctConnections = [
+            { left: 0, right: 0 },
+            { left: 1, right: 2 },
+            { left: 2, right: 3 },
+            { left: 3, right: 6 },
+            { left: 4, right: 7 },
+            { left: 5, right: 4 },
+            { left: 6, right: 1 },
+            { left: 7, right: 5 },
+            { left: 8, right: 8 },
+            { left: 9, right: 8 }
+        ];
+
+        // 检查给定的 leftIndex 和 rightIndex 是否匹配任何正确连接
+        return correctConnections.some(conn => conn.left === leftIndex && conn.right === rightIndex);
+    }
+});
+
+</script> 
+</body>
+</html>
