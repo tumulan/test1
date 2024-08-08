@@ -59,3 +59,6 @@ $(".js-custom-item").on("keyup paste", function() {
 	var newDiv = '<div class="item custom">' + customItem + "</div>";
 	$(".emoji-face").append(newDiv);
 });
+function next(){
+    window.location.href = "qinfangting2.html";
+}
