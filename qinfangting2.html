@@ -113,6 +113,9 @@
         	top:80%;
         }
         button{
+            font-family: 宋体;
+        }
+        .btn1{
         	position:absolute;
         	width:100px;
             border-radius: 10px;
@@ -122,7 +125,18 @@
         	font-size:20px;
         	background-color:white;
             border: 1px solid black;
-            font-family: 宋体;
+            
+        }
+        .btn2{
+        	position:absolute;
+        	width:100px;
+            border-radius: 10px;
+            font-weight: 900;
+        	top:80%;
+        	left:80%;
+        	font-size:20px;
+        	background-color:white;
+            border: 1px solid black;
             
         }
         button:hover{
@@ -136,7 +150,9 @@
       
         <div class="dialogue-box" id="myDiv">
     
-        	<button onclick="nextStep()">下一步</button>
+        	<button class="btn2" onclick="nextPage()">返回地图</button>
+        	<button class="btn1" onclick="nextStep()">下一步</button>
+
 
             
             <p class="dialogue-text">我这脑袋，不知道什么时候修了福，今儿也体面起来了。</p>
@@ -167,7 +183,9 @@
             "刘姥姥",
             "贾母"
         ];
-
+        function nextPage(){
+            window.location.href = "ditu.html";
+        }
         function nextStep() {
             var div = document.getElementById('myDiv');
             var paragraph = div.querySelector('.dialogue-text'); // 获取对话内容的 <p> 元素
@@ -182,6 +200,9 @@
             div.querySelector('button').style.display = 'none';
             // 同时显示选择按钮容器
             choicesContainer.style.display = 'block';
+            const buttons = div.querySelectorAll('button');
+            const secondButton = buttons[1];
+            secondButton.style.display = 'none';
         }
         }
 
