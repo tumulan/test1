@@ -129,13 +129,27 @@
         	top:80%;
         }
         button{
+            font-family: 宋体;
+        }
+        .btn1{
         	position:absolute;
         	width:100px;
             border-radius: 10px;
-            font-family: 宋体;
             font-weight: 900;
         	top:80%;
         	left:90%;
+        	font-size:20px;
+        	background-color:white;
+            border: 1px solid black;
+            
+        }
+        .btn2{
+        	position:absolute;
+        	width:100px;
+            border-radius: 10px;
+            font-weight: 900;
+        	top:80%;
+        	left:80%;
         	font-size:20px;
         	background-color:white;
             border: 1px solid black;
@@ -155,10 +169,10 @@
     	<div class="character-name">鸳鸯</div>
       
         <div class="dialogue-box" id="myDiv">
+            <button class="btn1" onclick="nextStep()">下一步</button>
+            <button class="btn2" onclick="nextPage()">返回地图</button>
         	
-        	<button onclick="nextStep()">下一步</button>
 
-            
             <p class="dialogue-text">天天咱们说外头老爷们：吃酒吃饭，都有个凑趣儿的，拿他取笑儿。咱们今儿也得了个女清客了。<br>
             <span style="font-size: 20px;font-family: 华文仿宋;">清客：旧时称在豪富人家帮闲凑趣的人。</span></p>
             
@@ -175,8 +189,7 @@
         "咱们今儿就拿他取笑儿。",
         "你们一点儿好事儿不做！又不是个小孩儿，还这么淘气。仔细老太太说！",
         "很不与大奶奶相干，有我呢。",
-        "正说着，只见贾母等来了"
- 		
+        "正说着，只见贾母等来了，各自随便坐下，先有丫鬟挨人递了茶，大家吃毕，凤姐手里拿着西洋布手巾，裹着一把乌木三镶银箸，按席摆下。"
      ];
 
     var currentIndex = 0; // 当前文本数组的索引
@@ -189,6 +202,7 @@
         "李纨",
         "鸳鸯",
         ""
+
     ];
 
      function nextStep() {
@@ -203,18 +217,13 @@
             characterName.textContent = characterNames[currentIndex]; // 更新角色名
             currentIndex++;
             stepCount++;
-        }
-
-        
-        
-
-        if (currentIndex >= texts.length) {
-            // 如果已经显示完所有文本，隐藏下一步按钮
-            div.querySelector('button').style.display = 'none';
-
+        }else{
+            window.location.href = 'xiaocuitang2.html';
         }
     }
-
+    function nextPage(){
+        window.location.href = 'ditu.html';
+    }
     </script>
 </body>
 </html>
