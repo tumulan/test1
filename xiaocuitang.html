@@ -155,6 +155,18 @@
             border: 1px solid black;
             
         }
+        .btn3{
+        	position:absolute;
+        	width:100px;
+            border-radius: 10px;
+            font-weight: 900;
+        	top:80%;
+        	left:70%;
+        	font-size:20px;
+        	background-color:white;
+            border: 1px solid black;
+            
+        }
         button:hover{
             background-color: antiquewhite;
         }
@@ -171,6 +183,7 @@
         <div class="dialogue-box" id="myDiv">
             <button class="btn1" onclick="nextStep()">下一步</button>
             <button class="btn2" onclick="nextPage()">返回地图</button>
+            <button class="btn3" onclick="skip()" title="跳到用餐剧情">跳过</button>
         	
 
             <p class="dialogue-text">天天咱们说外头老爷们：吃酒吃饭，都有个凑趣儿的，拿他取笑儿。咱们今儿也得了个女清客了。<br>
@@ -223,6 +236,9 @@
     }
     function nextPage(){
         window.location.href = 'ditu.html';
+    }
+    function skip(){
+        window.location.href = 'xiaocuitang2.html';
     }
     </script>
 </body>

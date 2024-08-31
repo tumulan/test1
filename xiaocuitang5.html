@@ -127,6 +127,18 @@
             border: 1px solid black;
             
         }
+        .btn3{
+        	position:absolute;
+        	width:100px;
+            border-radius: 10px;
+            font-weight: 900;
+        	top:80%;
+        	left:70%;
+        	font-size:20px;
+        	background-color:white;
+            border: 1px solid black;
+            
+        }
         button:hover{
             background-color: antiquewhite;
         }
@@ -143,7 +155,7 @@
         <div class="dialogue-box" id="myDiv">
             <button class="btn1" onclick="nextStep()">下一步</button>
             <button class="btn2" onclick="nextPage()">返回地图</button>
-        	
+        	<button class="btn3" onclick="showNextText()" title="直接去完成练习">跳过</button>
 
             <p class="dialogue-text">别的罢了，我只爱你们家这行事！怪道说‘礼出大家’。<br>
             
@@ -212,7 +224,7 @@
     function showNextText() {
         window.location.href = 'homework.html';
     }
- 
+
 
     </script>
 </body>

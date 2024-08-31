@@ -82,16 +82,24 @@
             letter-spacing: 5px;
             color:black;
         }
+        .btn{
+            float:inline-end;
+            margin-right: 20%;
+           
+        }
 </style>
 <body>
    <div class="mouth" >
     <img src="img/mouth.png">
-   </div>
     
+   </div>
+   <button class="btn" onclick="next()">跳过</button>
+
     <img class="egg" src="img/egg.png">
     <div id="success-message"><img src="img/juanzhou.png" style="opacity: 0.7;">
         <div class="text">刘姥姥成功吃到鸽子蛋☺</div> <button onclick="again()">再吃一个</button><span>&nbsp;&nbsp;&nbsp;</span>
         <button onclick="next()">下一情节</button></div>
+        
 </body>
 <script>
     document.addEventListener('click', function() {
@@ -124,5 +132,6 @@
     function next(){
         window.location.href="xiaocuitang4.html";
     }
+
 </script>
 </html>
