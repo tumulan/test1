@@ -12,12 +12,12 @@
             height: 100%;
             overflow: hidden;
             font-family: 宋体;
+            background: url('img/qin.jpg') no-repeat center center/cover;
         }
         .game-container {
             position: relative;
             width: 100%;
             height: 100%;
-            background: url('img/qin.jpg') no-repeat center center/cover;
 
         }
         .game-container img{
@@ -79,7 +79,7 @@
         .choice {
            background: url('img/duihuakuangbeijing.png') no-repeat center center/cover;
             width:350px;
-           opacity: 0.7;
+           opacity: 0.9;
             position:absolute;
             left:40%;
             top:50%;
@@ -94,7 +94,6 @@
         
         
         .choice:hover {
-            background: url('img/duihuakuangbeijing.png') no-repeat center center/cover;
             opacity: 1;
         }
        
@@ -113,6 +112,9 @@
         	top:80%;
         }
         button{
+            font-family: 宋体;
+        }
+        .btn1{
         	position:absolute;
         	width:100px;
             border-radius: 10px;
@@ -122,7 +124,18 @@
         	font-size:20px;
         	background-color:white;
             border: 1px solid black;
-            font-family: 宋体;
+            
+        }
+        .btn2{
+        	position:absolute;
+        	width:100px;
+            border-radius: 10px;
+            font-weight: 900;
+        	top:80%;
+        	left:80%;
+        	font-size:20px;
+        	background-color:white;
+            border: 1px solid black;
             
         }
         button:hover{
@@ -133,16 +146,12 @@
 <body>
     <div class="game-container">
     	<div class="character-name">  </div>
-      
         <div class="dialogue-box" id="myDiv">
-        	
-        	<button onclick="nextStep()">下一步</button>
+        	<button class="btn2" onclick="nextPage()">返回地图</button>
+        	<button class="btn1" onclick="nextStep()">下一步</button>
 
-            
             <p class="dialogue-text">贾母拣了一朵大红的簪在鬓上，因回头看见了刘姥姥</p>
             
- 			 
-          
         </div>
         <div class="choices-container">
             <button class="choice" onclick="showNextText()">点击为刘姥姥簪花</button>
@@ -166,7 +175,9 @@
             "贾母",
             "凤姐儿"
         ];
-
+        function nextPage(){
+            window.location.href = "ditu.html";
+        }
         function nextStep() {
             var div = document.getElementById('myDiv');
             var paragraph = div.querySelector('.dialogue-text'); // 获取对话内容的 <p> 元素
@@ -177,10 +188,12 @@
                 characterName.textContent = characterNames[currentIndex]; // 更新角色名
                 currentIndex++;
             }  if (currentIndex >= texts.length) {
-            // 如果已经显示完所有文本，隐藏下一步按钮
-            div.querySelector('button').style.display = 'none';
-            // 同时显示选择按钮容器
+            // 显示选择按钮容器
             choicesContainer.style.display = 'block';
+            const buttons = div.querySelectorAll('button');
+            const secondButton = buttons[1];
+            secondButton.style.display = 'none';
+     
         }
         }
 
