@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>帮刘姥姥吃到鸽子蛋</title>
+</head>
+<style>
+   body {
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+        }
+    .mouth{
+        width: 100%;
+        height: 450px;
+        display: flex;
+        justify-content: center;
+        position: relative;
+    }
+    .mouth img{
+        width: 500px;
+        text-align: center;
+ }
+ .egg{
+    position: absolute;
+    top: 400px; /* Adjust as needed */
+    left: 48%; /* Center horizontally */
+    width: 150px;
+    z-index: 10;
+    animation: moveLeftRight 5s ease-in-out infinite; 
+        }
+
+        /* Define the animation */
+        @keyframes moveLeftRight {
+            0% {
+                transform: translateX(-60%) translateX(-200px); /* Move left */
+            }
+            50% {
+                transform: translateX(-50%) translateX(300px); /* Move right */
+            }
+            100% {
+                transform: translateX(-50%) translateX(-200px); /* Move back to start */
+            }
+        }
+        #success-message {
+            display: none; /* Hidden by default */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);            
+            font-size: 40px;
+            color: green;
+            z-index: 20;
+        }
+        button{
+            background-color:rgb(238, 211, 176); /* 按钮背景色 */
+            border: none; /* 去掉默认边框 */
+            padding: 5px 10px; /* 内边距 */
+            text-align: center; /* 文本居中 */
+            display: inline-block; /* 内联块级元素 */
+            font-size: 18px; /* 字体大小 */
+            font-family: 宋体;
+            font-weight: bolder;
+            margin: 2px 1px; /* 外边距 */
+            cursor: pointer; /* 鼠标指针样式 */
+            border-radius: 8px; /* 圆角边框 */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* 立体效果 */
+            transition: all 0.3s ease; /* 平滑过渡效果 */
+        }
+        button:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* 悬停时更强的阴影 */
+            transform: translateY(-1px); /* 悬停时向上移动 */
+        }
+        #success-message .text {
+            position: absolute;
+            top: 35%; /* 垂直居中 */
+            left: 44%; /* 水平居中 */
+            transform: translate(-40%, -50%); /* 精确居中 */
+            font-size: 40px; /* 文字大小 */
+            font-family: 宋体;
+            letter-spacing: 5px;
+            color:black;
+        }
+</style>
+<body>
+   <div class="mouth" >
+    <img src="img/mouth.png">
+   </div>
+    
+    <img class="egg" src="img/egg.png">
+    <div id="success-message"><img src="img/juanzhou.png" style="opacity: 0.7;">
+        <div class="text">刘姥姥成功吃到鸽子蛋☺</div> <button onclick="again()">再吃一个</button><span>&nbsp;&nbsp;&nbsp;</span>
+        <button onclick="next()">下一情节</button></div>
+</body>
+<script>
+    document.addEventListener('click', function() {
+        const egg = document.querySelector('.egg');
+            const mouth = document.querySelector('.mouth');
+            const successMessage = document.getElementById('success-message');
+             egg.style.top = '300px'; 
+             const centerX = window.innerWidth / 2;
+            // Get positions
+            const eggRect = egg.getBoundingClientRect();
+            const mouthRect = mouth.getBoundingClientRect();
+            
+    
+                   // Move the egg up
+           
+            if (eggRect.left <= centerX && eggRect.left >= centerX-40) {
+                egg.style.animation = 'none'; // Stop the animation
+                successMessage.style.display = 'block'; // Show success message
+           
+            } else {
+            // After 1 second, move the egg back to its original position
+            setTimeout(function() {
+                egg.style.top = '400px'; // Move back to the original position
+            },500); // 1000 milliseconds = 1 second
+        }
+        });
+    function again(){
+        window.location.href="eat.html";
+    }
+    function next(){
+        window.location.href="xiaocuitang4.html";
+    }
+</script>
+</html>

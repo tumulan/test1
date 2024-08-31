@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>晓翠堂</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+        }
+        .game-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: url('img/xct3.jpg') no-repeat center center/cover;
+        }
+        .game-container img{
+        	position:absolute;
+        	left:80%;
+        	top:50%;
+        }
+        .dialogue-box {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height:20%;
+            color:white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background: url('img/duihuakuang.png') no-repeat center center/cover;
+            opacity: 0.8;
+        }
+        
+        .character-name {
+            font-weight: bold;
+            color: #8B0000;
+            position:absolute;
+            top:64%;
+            left:9.5%;
+            opacity: 0.95;
+            border-radius: 10px;
+            text-align: center;
+            padding-top:20px;
+            font-size:26px;
+            width:200px;
+            height:50px;
+            background: url('img/duihuakuangbeijing.png') no-repeat center center/cover;
+        }
+        .dialogue-text {
+            margin-top: 10px;
+            
+            font-size:30px;
+            color:black;
+            padding-left:150px;
+            padding-right:100px;
+        }
+        .choices-container {
+            position: absolute;
+            top: 50%;
+            left: 40%;
+            width:360px;
+             height:200px;
+            transform: translate(-50%, -50%);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+           
+        }
+        .choice {
+           background: url('img/juanzhou.png') no-repeat center center/cover;
+            width:400px;
+            height: 50px;
+           opacity: 0.9;
+            position:absolute;
+            left:40%;
+            top:50%;
+            font-size: 25px;
+            padding: 5px;
+            cursor: pointer;
+            text-align: center;
+            transition: background 0.3s;
+            border: none;
+        }
+        
+        
+        .choice:hover {
+            opacity: 1;
+        }
+        .character {
+            position: absolute;
+            bottom: 110px; /* just above the dialogue box */
+            left: 20%;
+            transform: translateX(-50%);
+            max-height: 70%;
+        }
+        button{
+            font-family: 宋体;
+        }
+        .btn1{
+        	position:absolute;
+        	width:100px;
+            border-radius: 10px;
+            font-weight: 900;
+        	top:80%;
+        	left:90%;
+        	font-size:20px;
+        	background-color:white;
+            
+        }
+        .btn2{
+        	position:absolute;
+        	width:100px;
+            border-radius: 10px;
+            font-weight: 900;
+        	top:80%;
+        	left:80%;
+        	font-size:20px;
+        	background-color:white;
+            border: 1px solid black;
+            
+        }
+        button:hover{
+            background-color: antiquewhite;
+        }
+        p{
+            font-family: 宋体;
+            line-height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+    	<div class="character-name">贾母</div>
+      
+        <div class="dialogue-box" id="myDiv">
+            <button class="btn1" onclick="nextStep()">下一步</button>
+            <button class="btn2" onclick="nextPage()">返回地图</button>
+        	
+
+            <p class="dialogue-text">谁这会子又把那个筷子拿了出来，又不请客摆大筵席！都是凤丫头支使的！还不换了呢。<br>
+            
+        </div>
+        <div class="choices-container">
+
+            <audio id="keySound" src="刘姥姥音频"></audio>
+            
+        </div>
+
+    </div>
+
+    <script>
+        
+     var texts = [
+        
+        "去了金的，又是银的，到底不及俺们那个伏手。",
+        "菜里若有毒，这银子下去了就试的出来。",
+        "这个菜里若有毒，俺们那菜都成了砒霜了！ 那怕毒死了，也要吃尽了。",
+        "贾母见他如此有趣，吃的又香甜，把自己的菜也端过来给他吃。又命一个老嬷嬷来，将各样的菜给板儿夹在碗上。",
+        "一时吃毕，贾母等都往探春卧室中去说闲话，这里收拾过残桌，又放了一桌。刘姥姥看着李纨与凤姐儿对坐着吃饭，叹道："
+     ];
+
+    var currentIndex = 0; // 当前文本数组的索引
+    var stepCount = 0; // 计数器，用于判断点击次数
+
+    // 角色名数组
+    var characterNames = [
+      
+        "刘姥姥",
+        "凤姐儿",
+        "刘姥姥",
+        "",
+        ""
+
+    ];
+
+     function nextStep() {
+     	
+        var div = document.getElementById('myDiv');
+        var paragraph = div.querySelector('.dialogue-text'); // 获取对话内容的 <p> 元素
+        var characterName = document.querySelector('.character-name'); // 获取角色名的元素
+        var choicesContainer = document.querySelector('.choices-container'); // 获取选择按钮容器
+
+        if (currentIndex < texts.length) {
+            paragraph.textContent = texts[currentIndex];
+            characterName.textContent = characterNames[currentIndex]; // 更新角色名
+            currentIndex++;
+            stepCount++;
+        }else{
+            window.location.href="xiaocuitang5.html";
+        }
+
+        
+    }
+ 
+
+    </script>
+</body>
+</html>
