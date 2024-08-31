@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>潇湘馆</title>
+    <title>潇湘馆测试版</title>
     <style>
         body, html {
             margin: 0;
@@ -11,28 +11,404 @@
             width: 100%;
             height: 100%;
             overflow: hidden;
-            font-family: 'Arial', sans-serif;
+            font-family: 宋体;
         }
         .game-container {
             position: relative;
             width: 100%;
             height: 100%;
             background: url('img/xiaoxiangguan.jpg') no-repeat center center/cover;
+             z-index: 1;
         }
         .game-container img{
         	position:absolute;
         	left:80%;
         	top:50%;
         }
+        .dialogue-box {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height:20%;
+            background: ;
+            color:white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background: url('img/duihuakuang.png') no-repeat center center/cover;
+            opacity: 0.8;
+             z-index: 3;
+        }
+        
+        .character-name {
+            font-weight: bold;
+            color: #8B0000;
+            position:absolute;
+            top:64%;
+            left:9.5%;
+            opacity: 0.95;
+            border-radius: 10px;
+            text-align: center;
+            padding-top:20px;
+            font-size:26px;
+            width:200px;
+            height:50px;
+            background: url('img/duihuakuangbeijing.png') no-repeat center center/cover;
+        }
+        .dialogue-text {
+            margin-top: 10px;
+            
+            font-size:30px;
+            color:black;
+            padding-left:150px;
+            padding-right:100px;
+        }
+        .choices-container {
+            position: absolute;
+            top: 50%;
+            left: 40%;
+            width:400px;
+             height:200px;
+            transform: translate(-50%, -50%);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+           
+        }
+        .choice {
+        
+           background: url('img/duihuakuangbeijing.png') no-repeat center center/cover;
+            border: none; /* 去掉默认边框 */
+            color: black; /* 按钮文本颜色 */
+            padding: 15px 32px; /* 内边距 */
+            text-align: center; /* 文本居中 */
+            display: inline-block; /* 内联块级元素 */
+            font-size: 25px; /* 字体大小 */
+            margin: 4px 2px; /* 外边距 */
+            font-weight: 900;
+            cursor: pointer; /* 鼠标指针样式 */
+            border-radius: 8px; /* 圆角边框 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); /* 立体效果 */
+            transition: all 0.3s ease; /* 平滑过渡效果 */
+            width: 200px;
+            left: 50%;
+            top:40%;
+            letter-spacing: 5px;
+        }
+        .choice2 {
+           background: url('img/duihuakuangbeijing.png') no-repeat center center/cover;
+            border: none; /* 去掉默认边框 */
+            color: black; /* 按钮文本颜色 */
+            padding: 15px 32px; /* 内边距 */
+            text-align: center; /* 文本居中 */
+            display: inline-block; /* 内联块级元素 */
+            font-size: 25px; /* 字体大小 */
+            margin: 4px 2px; /* 外边距 */
+            font-weight: bolder;
+            cursor: pointer; /* 鼠标指针样式 */
+            border-radius: 8px; /* 圆角边框 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); /* 立体效果 */
+            transition: all 0.3s ease; /* 平滑过渡效果 */
+            width: 200px;
+            left: 50%;
+            letter-spacing: 5px;
+        }
+        #nextPage:hover, .choice:hover,.choice2:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.8); /* 悬停时更强的阴影 */
+            transform: translateY(-2px); /* 悬停时向上移动 */
+        }
+        
+        
+        .choice:hover {
+            background: url('img/duihuakuangbeijing.png') no-repeat center center/cover;
+            opacity: 1;
+        }
+        .character {
+            position: absolute;
+            bottom: 110px; /* just above the dialogue box */
+            left: 20%;
+            transform: translateX(-50%);
+            max-height: 70%;
+        }
+        .tiaozhuan{
+        	width:200px;
+        	height:100px;
+        	position:absolute;
+        	left:90%;
+        	top:80%;
+        }
+        button{
+        	position:absolute;
+        	width:100px;
+        	top:80%;
+        	left:90%;
+        	font-size:20px;
+            font-weight: 900;
+        	background-color:white;
+            border: 1px solid black;
+            font-family: 宋体;
+            border-radius: 10px;
+        }
+        button:hover{
+            background-color: antiquewhite;
+        }
+        
+        #zhuzi{
+        	position:absolute;
+        	left:2%;
+        	top:1%;
+        	width: 500px; 
+            height: auto; 
+            cursor: pointer;
+        }
+        .zhuzi,.douhantu,.chahu,.huajuan{
+            position: absolute;
+            bottom: 10px; /* 文字距离底部 */
+            left: 50%; /* 文字水平居中 */
+            transform: translateX(-50%); /* 文字水平居中 */
+            background-color: rgba(0, 0, 0, 0.7); /* 半透明背景 */
+            color: white; /* 文字颜色 */
+            font-size: 20px;
+            border-radius: 4px;
+            display: none; /* 初始隐藏文字 */
+            z-index: 100; 
+            line-height: 35px;
+            padding: 5px;
+        }
+        #douhantu{
+        	position:absolute;
+        	top: -2%;
+        	left: 35%;
+            width: 100px;
+             height: auto; 
+             cursor: pointer;
+        }
 
+        #chahu{
+        	position:absolute;
+        	top:66%;
+        	left:54.7%;
+        	 z-index: 2; /* 背景层级 */
+             width: 100px; 
+             height: auto; 
+             cursor: pointer;
+        }
+
+        #huajuan{
+        	position:absolute;
+        	top:37.9%;
+        	left:56%;
+        	 transform: rotate(15deg); /* 旋转 45 度 */
+             width: 160px; height: auto; cursor: pointer;
+        }
+        #zhuzi:hover, #douhantu:hover, #chahu:hover, #huajuan:hover{
+        	box-shadow: 0 0 30px rgba(255, 255, 0, 0.8); /* 发光效果 */
+        }
+        #text-box{
+        	width:500px;
+        	text-align: center;
+        	font-size:18px;
+        }
+        #next-page {
+            position: fixed;
+            top:80%; /* 距离底部的距离 */
+            left: 80%;
+            width:200px;
+            height:50px;
+            font-size:30px;
+            background-color: rgb(236, 232, 227); /* 按钮背景颜色 */
+            z-index: 1000; /* 确保按钮在最上层 */
+            border: none; /* 去掉默认边框 */
+            color: black; /* 按钮文本颜色 */
+            padding: 5px; /* 内边距 */
+            text-align: center; /* 文本居中 */
+            font-size: 25px; /* 字体大小 */
+            font-weight: 900;
+            cursor: pointer; /* 鼠标指针样式 */
+            border-radius: 8px; /* 圆角边框 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); /* 立体效果 */
+            transition: all 0.3s ease; /* 平滑过渡效果 */
+            display:none;
+            letter-spacing: 5px;
+}
     </style>
 </head>
 <body>
     <div class="game-container">
-    
- 
+    	<button id="next-page" onclick="nextPage()">探索结束</button>
+    	<div class="character-name">刘姥姥</div>
+      
+        <div class="dialogue-box" id="myDiv">     	
+        	<button onclick="nextStep()" id="nextStep">下一步</button>    
+            <p class="dialogue-text">这必定是那一位哥儿的书房了？</p>
+        </div>
+
+       <div class="choices-container" style="display: none;">
+        <button class="choice" onclick="chooseOption(1)">贾宝玉</button>
+        <button class="choice2" onclick="chooseOption(2)">林黛玉</button>
+        
     </div>
+    <div id="image-container" style="display: block;">
 
+    	<img id="zhuzi" src="img/zhuzi.png" alt="竹子" onmouseover="show(1)" onmouseout="hide(1)">
+        <div class="zhuzi">竹子春不争荣，冬不枯谢，不趋炎附势的高风亮节，与黛玉清高纯洁，不与世同流合污的性格多么一致；竹抗风暴，傲霜雪，与松梅素有“岁寒三友”之称，这与黛玉孤高自傲的叛逆思想和反抗性格又多么相投；“斑竹一枝千滴泪”，竹又烘托出林黛玉用泪来表示爱情忠贞专一，至死不渝的个性特征。竹，不但增添了潇湘馆的清幽寂静的气氛，更烘托了黛玉孤独的身世和悲凉的心境。</div>
+    	
+        <img id="douhantu" src="img/douhantu.png" alt="斗寒图" onmouseover="show(2)" onmouseout="hide(2)">
+        <div class="douhantu">此图为《斗寒图》，贾宝玉看到这幅画，问道：“是什么出处？”
+            黛玉笑道：“岂不闻'青女素娥俱耐冷，月中霜里斗婵娟’。”这句诗出自李商隐的《霜月》：
+            “初闻征雁已无蝉，
+            百尺楼台水接天。
+            青女素娥俱耐冷，
+            月中霜里斗婵娟。”<br>续书者也是想通过室内书画的描述，尤其通过“斗寒图”的比喻，衬托林黛玉的孤傲高洁。"</div>
+    	
+        <img id="chahu" src="img/chahu.png" alt="茶壶"  onmouseover="show(3)" onmouseout="hide(3)">
+        <div class="chahu">宝鼎茶闲烟尚绿，幽窗棋罢指犹凉。<br>
+            宝鼎，这里指煮茶用的炊具。作者紧扣了翠竹的特点，不着一“竹”字而把竹写得神态毕现。<br>
+            上联言宝鼎不煮茶了，屋里还飘散着绿色的蒸汽；下联称幽静的窗下棋已停下了，手指还觉得有凉意。<br>
+            这绿色的蒸汽，显然是翠竹的遮映所致；这凉意，也是因浓荫生凉之故。可谓视角形象与触觉感知二者俱兼。<br>
+            联中的“茶闲”“棋罢”用得绝妙，吟诵此联，由景及情，由物及人，在贵族家庭中生活的公子哥儿、小姐们那种闲情逸致之情态，
+            似映入眼帘。这对联影射黛玉，赞其幽美清丽。“指犹凉”也暗示出黛玉最终的悲剧结局。</div>
+        
+        <img id="huajuan" src="img/huajuan.png" alt="画卷" onmouseover="show(4)" onmouseout="hide(4)">
+        <div class="huajuan">元春赐名. 潇湘馆潇湘，即指竹。按，潇湘,原为湘江别称，在今湖南省。<br>《山海经·中山经》：
+            交潇湘之渊。<br>郦道元《水经注·湘水》：神游洞庭之渊，出入潇湘之浦。潇湘者，水清深也。又传说尧有二女，长曰娥皇，
+            次曰女英，姐妹同嫁舜为妻。舜父顽，母嚣，弟劣，曾多次欲置舜城死地，终因娥皇女英之助而脱险。舜继尧位，娥皇女英为其妃，
+            后舜至南方巡视，死于苍梧。二妃往寻，泪染青竹，竹上生斑，因称潇湘竹或湘妃竹。二妃也死于江湘之间。故后世以潇湘指斑竹，
+            泛指竹。<br> 三十七回探春开黛玉玩笑时说：如今他住的是潇湘馆,
+            他又爱哭,将来他想林姐夫,那些竹子也是要变成斑竹的.以后都叫他作‘潇湘妃子’就完了。似亦暗示黛玉最终之泪尽而逝。</div>
+           
+        <div id="text-box" style="display: none; position: absolute; background: white; border: 1px solid black; padding: 10px;">
+        <p id="text-content"></p>
+    </div>
+    </div>
+   
+    <script>
+        
+     var texts = [
+        "这是谁的书房？",
+        "这是我这外孙女儿的屋子。",
+        "这那里象个小姐的绣房？竟比那上等的书房还好呢。",
+        ""
+     ];
 
+    var currentIndex = 0; // 当前文本数组的索引
+    var stepCount = 0; // 计数器，用于判断点击次数
+
+    // 角色名数组
+    var characterNames = [
+        "", // 初始角色名
+        "贾母",
+        "刘姥姥",
+        "刘姥姥"
+        
+    ];
+    var nxs = document.getElementById('nextStep');
+     function nextStep() {
+     	
+        var div = document.getElementById('myDiv');
+        var paragraph = div.querySelector('.dialogue-text'); // 获取对话内容的 <p> 元素
+        var characterName = document.querySelector('.character-name'); // 获取角色名的元素
+        var choicesContainer = document.querySelector('.choices-container'); // 获取选择按钮容器
+		 var imageContainer = document.getElementById('image-container'); // 获取图片容器
+        
+		  
+        if (currentIndex < texts.length) {
+            paragraph.textContent = texts[currentIndex];
+            characterName.textContent = characterNames[currentIndex]; // 更新角色名
+            currentIndex++;
+            stepCount++;
+        }
+
+        if (stepCount === 1) {
+            // 当点击两次后显示选项1和选项2
+            choicesContainer.style.display = 'block';
+            nxs.style.display="none";
+        } else if (stepCount === 4) {
+            characterName.style.display='none',
+            div.style.display = 'none'; // 隐藏特定的 div     
+        }
+        if (stepCount > 4) {
+        // 点击四次后隐藏所有div
+        var allDivs = document.querySelectorAll('div');
+        allDivs.forEach(d => d.style.display = 'none');
+    }
+
+        if (currentIndex >=texts.length) {
+            
+              div.style.display = 'none';
+              document.getElementById('next-page').style.display = 'block';
+              
+        }
+    }
+	
+    function chooseOption(option) {
+        var paragraph = document.querySelector('.dialogue-text');
+        var choicesContainer = document.querySelector('.choices-container');
+
+        switch (option) {
+            case 1:
+                paragraph.textContent = "选择错误！这是林黛玉的房间。";
+                nxs.style.display="block";
+                break;
+            case 2:
+                paragraph.textContent = "选择正确！";
+                nxs.style.display="block";
+                break;
+            default:
+                break;
+        }
+
+        // 隐藏选择按钮
+        choicesContainer.style.display = 'none';
+    }
+
+function nextPage() {
+    window.location.href = 'ditu.html'; // 跳转到下一页
+} 
+
+var z=document.querySelector(".zhuzi");
+var d=document.querySelector(".douhantu");
+var c=document.querySelector(".chahu");
+var h=document.querySelector(".huajuan");
+function show(x){
+    switch(x){
+        case 1:
+            z.style.display="block";
+            break;
+        case 2:
+            d.style.display="block";
+            break;
+        case 3:
+            c.style.display="block";
+            break;
+        case 4:
+            h.style.display="block";
+            break;
+        default:
+            break;
+    }
+    
+}
+function hide(x){
+    switch(x){
+        case 1:
+            z.style.display="none";
+            break;
+        case 2:
+            d.style.display="none";
+            break;
+        case 3:
+            c.style.display="none";
+            break;
+        case 4:
+            h.style.display="none";
+            break;
+        default:
+            break;
+    }
+}
+    </script>
 </body>
 </html>
