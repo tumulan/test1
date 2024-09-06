@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蘅芜院</title>
+    <style>
+        body,html{
+            width:100%;
+            height:100%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            background:url("img/hwy1.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            overflow:hidden;
+        }
+        .card{
+            position:ralation;
+            display:grid;
+            grid-template-columns:466px;
+            grid-template-rows:280px 300px;
+            grid-template-areas:"image" "text";
+            font-family:楷体;
+            border-radius:18px;
+            background-color: antiquewhite;
+            box-shadow: 5px 5px 50px rgba(255, 252, 235, 0.9);
+            text-align:center;
+            transition: 0.5s ease;
+            cursor:pointer;
+            overflow:hidden;
+            margin-right: 88px; 
+        }
+        .card-image{
+            grid-area:image;
+            background:url("img/hwy.jpg");
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            background-size: cover;
+
+        }
+        .card-text{
+            grid-area: text;
+            margin:25px;
+			overflow-y: auto;
+        }
+       
+        .card-text p{
+            color:grey;
+            font-size:18px;
+            font-weight:300;
+        }
+        .card-text h2{
+            margin-top: 0px;
+            font-size:28px;
+			color: crimson;
+			
+        }
+        .card-stats{
+            grid-area:stats;
+        }
+        .card-stats .value sup{
+            font-size: 12px;
+        }
+        .card:hover{
+            transform:scale(1.2);
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+        }
+        .card-image2{
+            grid-area:image;
+            background:url("img/xuebaochai.jpg");
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            background-size: cover;
+
+        }
+        .card-text2{
+            grid-area: text;
+            margin:25px;
+			overflow-y: auto;
+        }
+        .card-text2 p{
+            color:grey;
+            font-size:18px;
+            font-weight:300;
+        }
+        .card-text2 h2{
+            margin-top: 0px;
+            font-size:28px;
+			color: crimson;
+        }
+        .card-stats{
+            grid-area:stats;
+        }
+        .card-stats .value sup{
+            font-size: 16px;
+        }
+        .card:hover{
+            transform:scale(1.2);
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+        }
+        a{
+            text-decoration: none;
+        }
+		.hlm{
+			position:absolute;
+			top: 0;
+			right:40px;
+			margin: 0;
+			padding: 0;
+		}
+		.hlm img{
+			height:340px;
+			width: 150px;
+		}
+		 .link-container {
+		    position: absolute;
+		    bottom: 0;
+		    left: 0;
+		    margin: 10px;
+		}
+		.link-container a {
+		    color: crimson;
+		    font-size: 50px;
+		    font-family: 'STXingkai';
+		    text-decoration: none;
+		 }
+		.link-container a:hover {
+		    text-decoration: underline;
+		}
+    </style>
+</head>
+<body>
+	<div class="hlm">
+		<img src="img/hlm11.png">
+	</div>
+    <div class="card">
+        <div class="card-image"></div>
+        <div class="card-text">
+			<h2>蘅芜院简介</h2>
+            <p>蘅芜院为大观园中的一处建筑。“苑”本指帝王的院囿，而大观园这座以“苑”命名的院落，则是以各种香草仙藤而著称，是薛宝钗的住所。该院院外是两行垂柳间着桃花，附近有个折带朱栏板桥，院门口是一翠樾棣河堤，有云步石梯通沁芳溪。整个院落是一所清凉瓦舍，一色水磨石砖墙，清瓦花堵。
+元春省亲时曾对此处颇为喜爱，赐名“蘅芜院”。宝玉为其题的匾是“蘅芷清芬”，对额为“吟成豆蔻诗尤艳，睡足荼蘼梦亦香。”并题诗“蘅芷清芬”描绘所见景致：“蘅芜满净苑，萝薜助芬芳。软衬三春草，柔拖一缕香。轻烟迷曲径，冷翠滴回廊。谁谓池塘曲，谢家幽梦长。”
+《红楼梦》中匾额。宝玉提。后元春赐名“蘅芜院”。为薛宝钗大观园居住地。蘅，香草名。芷本亦香草名，但结合前后文来看，应是指香味似芷的蘼芜。清芬，谓清香芬芳。典出王夫之湘西草堂的楹联：芷香沅水三闾国，芜绿湘西一草堂。</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-image2"></div>
+        <div class="card-text2">
+            <h2>主人介绍</h2>
+            <p>薛宝钗，与林黛玉并列为金陵十二钗之首，贾宝玉的从母姊、妻子。薛宝钗出生在金陵城，“贾、史、王、薛”四大家族之一，这薛家乃是紫薇舍人薛公之后。共八房分。在“护官符”上，薛家有“珍珠如土金如铁”的说法，形容其有百万家资，巨富无比。
+薛宝钗生得肌骨莹润，举止娴雅，又有一大两岁的兄长，名为薛蟠（宝玉的姨兄）。当日有她父亲在日，酷爱此女，令其读书识字，乃至其才较之乃兄竟高过十倍。那薛家虽本是书香继世之家，自薛父死后，薛姨妈怜薛蟠是个独根孤种，未免溺爱纵容，以致老大无成。薛蟠赖祖父之旧情分，在户部挂名行商，领着内帑钱粮，采办杂料。其余一切经济事务一切不管，仍由管家仆人等操办之。宝钗见哥哥不能依贴母怀，她便不以书字为事，只留心针黹家计等事，好为母亲分忧解劳。
+薛宝钗随母亲、兄长一起进京主要有以下原因：一是近因今上崇诗尚礼，征采才能，降不世出之隆恩，除聘选妃嫔外，凡仕宦名家之女，皆亲名达部，以备选为公主郡主入学陪侍，充为才人赞善之职；二是探访亲友；三是自薛姨父死后，各省中所有的买卖承局，总管，伙计人等，见薛蟠年轻不谙世事，便趁时拐骗起来，京都中几处生意，渐亦消耗，薛蟠需亲自入部，销算旧帐，再计新支。
+薛宝钗的舅父，王子腾为京营节度使，新近提升了九省统治。宝钗的姨父，贾政在京都任工部员外郎。</p>
+        </div>
+    </div>
+	 <div class="link-container">
+	        <a href="detu.html">返回地图</a>
+	</div>
+</body>
+</html>
