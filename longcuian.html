@@ -11,7 +11,7 @@
             display:flex;
             align-items:center;
             justify-content:center;
-            background:url("img/lcab.jpg");
+            background:url("img/lcab.png");
             background-size: cover;
             background-repeat: no-repeat;
             overflow:hidden;
@@ -20,22 +20,21 @@
             position:ralation;
             display:grid;
             grid-template-columns:466px;
-            grid-template-rows:260px 260px;
+            grid-template-rows:280px 300px;
             grid-template-areas:"image" "text";
             font-family:楷体;
             border-radius:18px;
-            background:white;
-            box-shadow: 5px 5px 50px rgba(200, 146, 145, 0.9);
+			background-color: gainsboro;
+            box-shadow: 5px 5px 50px rgba(234, 255, 242, 0.9);
             text-align:center;
             transition: 0.5s ease;
             cursor:pointer;
             overflow:hidden;
-            margin-right: 46px; 
+            margin-right: 88px; 
         }
         .card-image{
             grid-area:image;
             background:url("img/lcantupian.png");
-			height: 260px;
             border-top-left-radius: 15px;
             border-top-right-radius: 15px;
             background-size: cover;
@@ -55,8 +54,7 @@
         .card-text h2{
             margin-top: 0px;
             font-size:28px;
-			color: brown;
-			font-family: 'STXingkai';
+			color: cadetblue;
 			
         }
         .card-stats{
@@ -72,7 +70,6 @@
         .card-image2{
             grid-area:image;
             background:url("img/miaoy.jpg");
-			height: 260px;
             border-top-left-radius: 15px;
             border-top-right-radius: 15px;
             background-size: cover;
@@ -91,8 +88,7 @@
         .card-text2 h2{
             margin-top: 0px;
             font-size:28px;
-			color: brown;
-			font-family: 'STXingkai';
+			color: cadetblue;
         }
         .card-stats{
             grid-area:stats;
@@ -125,7 +121,7 @@
 		    margin: 10px;
 		}
 		.link-container a {
-		    color: brown;
+		    color: cadetblue;
 		    font-size: 50px;
 		    font-family: 'STXingkai';
 		    text-decoration: none;
