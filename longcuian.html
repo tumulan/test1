@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>栊翠庵</title>
+    <style>
+        body,html{
+            width:100%;
+            height:100%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            background:url("img/lcab.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            overflow:hidden;
+        }
+        .card{
+            position:ralation;
+            display:grid;
+            grid-template-columns:466px;
+            grid-template-rows:260px 260px;
+            grid-template-areas:"image" "text";
+            font-family:楷体;
+            border-radius:18px;
+            background:white;
+            box-shadow: 5px 5px 50px rgba(200, 146, 145, 0.9);
+            text-align:center;
+            transition: 0.5s ease;
+            cursor:pointer;
+            overflow:hidden;
+            margin-right: 46px; 
+        }
+        .card-image{
+            grid-area:image;
+            background:url("img/lcantupian.png");
+			height: 260px;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            background-size: cover;
+
+        }
+        .card-text{
+            grid-area: text;
+            margin:25px;
+			overflow-y: auto;
+        }
+       
+        .card-text p{
+            color:grey;
+            font-size:18px;
+            font-weight:300;
+        }
+        .card-text h2{
+            margin-top: 0px;
+            font-size:28px;
+			color: brown;
+			font-family: 'STXingkai';
+			
+        }
+        .card-stats{
+            grid-area:stats;
+        }
+        .card-stats .value sup{
+            font-size: 12px;
+        }
+        .card:hover{
+            transform:scale(1.2);
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+        }
+        .card-image2{
+            grid-area:image;
+            background:url("img/miaoy.jpg");
+			height: 260px;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            background-size: cover;
+
+        }
+        .card-text2{
+            grid-area: text;
+            margin:25px;
+			overflow-y: auto;
+        }
+        .card-text2 p{
+            color:grey;
+            font-size:18px;
+            font-weight:300;
+        }
+        .card-text2 h2{
+            margin-top: 0px;
+            font-size:28px;
+			color: brown;
+			font-family: 'STXingkai';
+        }
+        .card-stats{
+            grid-area:stats;
+        }
+        .card-stats .value sup{
+            font-size: 16px;
+        }
+        .card:hover{
+            transform:scale(1.2);
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+        }
+        a{
+            text-decoration: none;
+        }
+		.hlm{
+			position:absolute;
+			top: 0;
+			right:40px;
+			margin: 0;
+			padding: 0;
+		}
+		.hlm img{
+			height:340px;
+			width: 150px;
+		}
+		 .link-container {
+		    position: absolute;
+		    bottom: 0;
+		    left: 0;
+		    margin: 10px;
+		}
+		.link-container a {
+		    color: brown;
+		    font-size: 50px;
+		    font-family: 'STXingkai';
+		    text-decoration: none;
+		 }
+		.link-container a:hover {
+		    text-decoration: underline;
+		}
+    </style>
+</head>
+<body>
+	<div class="hlm">
+		<img src="img/hlm11.png">
+	</div>
+    <div class="card">
+        <div class="card-image"></div>
+        <div class="card-text">
+            <h2>栊翠庵简介</h2>
+            <p>栊翠庵《红楼梦》中的一处建筑，专门为元妃省亲时所做法事的寺庙。开始是妙玉在大观园中的修行处，是一所园林中点景的尼姑庵；后来惜春出家，便住在此处。刘姥姥在栊翠庵品茶原文如下:当下贾母等吃过了茶，又带了刘姥姥至栊翠庵来。妙玉相迎进去。众人至院中，见花木繁盛，贾母笑道：“到底是他们修行的人，没事常常修理，比别处越发好看。”一面说，一面便往东禅堂来。妙玉笑往里让，贾母道：“我们才都吃了酒肉，你这里头有菩萨，冲了罪过。我们这里坐坐，把你的好茶拿来，我们吃一杯就去了。”宝玉留神看他是怎么行事，只见妙玉亲自捧了一个海棠花式雕漆填金“云龙献寿”的小茶盘，里面放一个成窑五彩小盖钟，捧与贾母。贾母道：“我不吃六安茶。”妙玉笑说：“知道。这是‘老君眉’。”贾母接了，又问：“是什么水？”妙玉道：“是旧年蠲的雨水。”贾母便吃了半盏，笑着递与刘姥姥，说：“你尝尝这个茶。”刘姥姥便一口吃尽，笑道：“好是好，就是淡些，再熬浓些更好了。”贾母众人都笑起来。然后众人都是一色的官窑脱胎填白盖碗。
+那妙玉便把宝钗黛玉的衣襟一拉，二人随他出去。宝玉悄悄的随后跟跟了来。只见妙玉让他二人在耳房内，宝钗便坐在榻上，黛玉便坐在妙玉的蒲团上。妙玉自向风炉上煽滚了水，另泡了一壶茶。宝玉便轻轻走进来，笑道：“你们吃体己茶呢！”二人都笑道：“你又赶了来撤茶吃！这里并没你吃的。”妙玉刚要去取杯，只见道婆收了上面茶盏来，妙玉忙命：“将那成窑的茶杯别收了，搁在外头去罢。”宝玉会意，知为刘姥姥吃了，他嫌腌舎不要了。又见妙玉另拿出两只杯来，一个旁边有一耳，杯上镌着“瓟斝”三个隶字，后有一行小真字，是“王恺珍玩”；又有“宋元丰五年四月眉山苏轼见于秘府”一行小字。妙玉斟了一斝递与宝钗。那一只形似钵而小，也有三个垂珠篆字，镌着“杏犀盉”。妙玉斟了一斝与黛玉，仍将前番自己常日吃茶的那只绿玉斗来斟与宝玉。宝玉笑道：“常言‘世法平等’：他两个就用那样古玩奇珍，我就是个俗器了？”妙玉道：“这是俗器？不是我说狂话，只怕你家里未必找的出这么一个俗器来呢！”宝玉笑道：“俗语说：随‘随乡入乡’，到了你这里，自然把这金珠玉宝一概贬为俗器了。”妙玉听如此说，十分欢喜，遂又寻出一只九曲十环一百二十节蟠虬整雕竹根的一个大盏出来，笑道：“就剩了这一个，你可吃的了这一海？”宝玉喜的忙道：“吃的了。”妙玉笑道：“你虽吃的了，也没这些茶你遭塌。岂不闻一杯为品，二杯即是解渴的蠢物，三杯便是饮驴了。你吃这一海，更成什么？”说的宝钗、黛玉、宝玉都笑了。妙玉执壶，只向海内斟了约有一杯。宝玉细细吃了，果觉轻淳无比，赏赞不绝。妙玉正色道：“你这遭吃茶，是托他两个的福，独你来了，我是不能给你吃的。”宝玉笑道：“我深知道，我也不领你的情，只谢他二人便了。”妙玉听了，方说：“这话明白。”
+黛玉因问：“这也是旧年的雨水？”妙玉冷笑道：“你这么个人，竟是大俗人，连水也尝不出来！这是五年前我在玄墓蟠香寺住着，收的梅花上的雪，统共得了那一鬼脸青的花瓮一瓮，总舍不得吃，埋在地下，今年夏天才开了。我只吃过一回，这是第二回了。你怎么尝不出来？隔年蠲的雨水，那有这样清淳？如何吃得！”黛玉知他天性怪僻，不好多话，亦不好多坐，吃过茶，便约着宝钗走出来。
+宝玉和妙玉陪笑说道：“那茶杯虽然腌舎了，白撩了岂不可惜？依我说，不如就给了那贫婆子罢，他卖了也可以度日。你说使得么？”妙玉听了，想了一想，点头说道：“这也罢了。幸而那杯子是我没吃过的；若是我吃过的，我就砸碎了也不能给他。你要给他，我也不管，你只交给他快拿了去罢。”宝玉道：“自然如此。你那里和他说话去？越发连你都脏了。只交给我就是了。”妙玉便命人拿来递给宝玉。宝玉接了，又道：“等我们出去了，我叫几个小么儿来河里打几桶水来洗地如何？”妙玉笑道：“这更好了。只是你嘱咐他们，抬了水，只搁在山门外头墙根下，别进门来。”宝玉道：“这是自然的。”说着，便袖着那杯递给贾母屋里的小丫头子拿着，说：“明日刘姥姥家去，给他带去罢。”交代明白，贾母已经出来要回去。妙玉亦不甚留，送出山门，回身便将门闭了，不在话下。</p>
+        </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-image2"></div>
+        <div class="card-text2">
+            <h2>主人介绍</h2>
+            <p>妙玉本是姑苏人氏，祖上亦是读书仕宦之家。“因生了这位姑娘自小多病，买了许多替生儿，皆不中用；到底这位姑娘亲自入了空门，方才好了。所以带发修行……如今父母俱已亡故，身边只有两个老嬷嬷、一个小丫头伏侍。文墨也极通，经文也不用学了，模样儿又好。因听见长安都中有观音遗迹并贝叶遗文，去岁随了师父上来。西门外侔尼院住着。
+他师父极演先天神数，于去冬圆寂了。妙玉本欲扶灵回乡的，他师父临寂遗言，说他‘衣食起居不宜回乡，在此净居，后来自然有结果’。所以他竟未回乡。”这是小说通过贾府管家林之孝的嘴对妙玉进行的介绍。因为是老乡，且又是熟人，故王夫人才派人下了请柬把妙玉请到了栊翠庵来。
+妙玉才高貌美，心性高洁，且有癖洁之嗜好。她很讲究吃喝，喝的都是名茶，使用的则是名贵的古董。凡器物，一经别人（尤其是她认为是贫贱之人）使用过的，她都一概不再使用。如果有外人进入了她的房间，待客人走后，她一定要用清水把地板冲洗干净。
+在大观园里，她与林黛玉和薛宝钗的关系最好，与宝玉的关系亦十分特殊，曾不时邀请他们到栊翠庵来玩耍、叙谈。</p>
+        </div>
+    </div>
+	 <div class="link-container">
+	        <a href="detu.html">返回地图</a>
+	</div>
+</body>
+</html>
