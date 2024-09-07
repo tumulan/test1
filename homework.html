@@ -3,9 +3,220 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>课后练习</title>
+    <title>课后习题</title>
+    <style>
+        body,html{
+            width:100%;
+            height:100%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            background:url("img/hwy1.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            overflow:hidden;
+			font-size: 28px;
+        }
+        .card{
+            position:ralation;
+            display:grid;
+            grid-template-columns:966px;
+            grid-template-rows:200px 500px;
+            grid-template-areas:"image" "text";
+            font-family:楷体;
+            border-radius:18px;
+            background-color:#FFE4C4;
+            box-shadow: 5px 5px 50px rgba(255, 252, 235, 0.9);
+            text-align:center;
+            transition: 0.5s ease;
+            cursor:pointer;
+            overflow:hidden;
+            margin-right: 88px; 
+        }
+        .card-image{
+            grid-area:image;
+            background:url("img/hwy.jpg");
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            background-size: cover;
+
+        }
+        .card-text{
+            grid-area: text;
+            margin:25px;
+        }
+       
+        .card-text p{
+            color:grey;
+            font-size:18px;
+            font-weight:300;
+        }
+        .card-text h1{
+            margin-top: 0px;
+            font-size:32px;
+			color: #8B7355;
+        }
+		.card-text h2{
+		    margin-top: 0px;
+		    font-size:36px;
+			color: chocolate;
+		}
+        .card-stats{
+            grid-area:stats;
+        }
+        .card-stats .value sup{
+            font-size: 12px;
+        }
+        .card:hover{
+            transform:scale(1.2);
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+        }
+        .card-stats{
+            grid-area:stats;
+        }
+        .card-stats .value sup{
+            font-size: 16px;
+        }
+        .card:hover{
+            transform:scale(1.03);
+            box-shadow: 5px 5px 15px rgba(230, 217, 208, 0.6);
+        }
+        a{
+            text-decoration: none;
+        }
+		.hlm{
+			position:absolute;
+			top: 0;
+			right:40px;
+			margin: 0;
+			padding: 0;
+		}
+		.hlm img{
+			height:340px;
+			width: 150px;
+		}
+		 .link-container {
+		    position: absolute;
+		    bottom: 0;
+		    left: 0;
+		    margin: 10px;
+		}
+		.link-container a {
+		    color: #8B7355;
+		    font-size: 50px;
+		    font-family: 'STXingkai';
+		    text-decoration: none;
+		 }
+		.link-container a:hover {
+		    text-decoration: underline;
+		}
+		.hidden {
+            display: none;
+        }
+		.button {
+            margin-top: 20px;
+            padding: 15px 30px;
+            font-size: 16px;
+            color: white;
+            background-color: #8B7355;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: burlywood;
+			
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+		
+    </style>
+	<script>
+	    function showPage(pageId) {
+	        document.querySelectorAll('.page').forEach(function(page) {
+	            page.classList.add('hidden');
+	        });
+	        document.getElementById(pageId).classList.remove('hidden');
+	    }
+	
+	    function checkAnswer(questionNumber, correctAnswer, nextPageId) {
+	        var answer = document.querySelector(`input[name="question${questionNumber}"]:checked`);
+	        var errorMsg = document.getElementById(`error${questionNumber}`);
+	        if (answer && answer.value === correctAnswer) {
+	            showPage(nextPageId);
+	            errorMsg.classList.add('hidden');
+	        } else {
+	            errorMsg.classList.remove('hidden');
+	        }
+	    }
+	
+	    window.onload = function() {
+	        showPage('page1');
+	    }
+	</script>
 </head>
 <body>
-    作业
+	<div class="hlm">
+		<img src="img/hlm11.png">
+	</div>
+    <div class="card">
+        <div class="card-image"></div>
+        <div class="card-text">
+            <div id="page1" class="page">
+                <h1>《刘姥姥进大观园》课后习题 第1题</h1>
+                <h2>刘姥姥第一次进大观园时，她见到了哪位主角？</h2>
+                <input type="radio" id="q1a" name="question1" value="A">
+                <label for="q1a">贾宝玉</label><br>
+                <input type="radio" id="q1b" name="question1" value="B">
+                <label for="q1b">林黛玉</label><br>
+                <input type="radio" id="q1c" name="question1" value="C">
+                <label for="q1c">薛宝钗</label><br>
+                <input type="radio" id="q1d" name="question1" value="D">
+                <label for="q1d">王熙凤</label><br>
+                <button type="button" class="button" onclick="checkAnswer(1, 'A', 'page2')">提交答案</button>
+                <h2 id="error1" class="error hidden">答案错误，请重新作答！</h2>
+            </div>
+            
+            <div id="page2" class="page hidden">
+                <h1>《刘姥姥进大观园》课后习题 第2题</h1>
+                <h2>刘姥姥对大观园中的哪个房间印象最深？</h2>
+                <input type="radio" id="q2a" name="question2" value="A">
+                <label for="q2a">怡红院</label><br>
+                <input type="radio" id="q2b" name="question2" value="B">
+                <label for="q2b">荣府</label><br>
+                <input type="radio" id="q2c" name="question2" value="C">
+                <label for="q2c">探春的房间</label><br>
+                <input type="radio" id="q2d" name="question2" value="D">
+                <label for="q2d">撷芳亭</label><br>
+                <button type="button" class="button" onclick="checkAnswer(2, 'D', 'page3')">提交答案</button>
+                <h2 id="error2" class="error hidden">答案错误，请重新作答！</h2>
+            </div>
+            
+            <div id="page3" class="page hidden">
+                <h1>《刘姥姥进大观园》课后习题 第3题</h1>
+                <h2>刘姥姥进大观园后，最让她惊讶的是什么？</h2>
+                <input type="radio" id="q3a" name="question3" value="A">
+                <label for="q3a">园中的花草树木</label><br>
+                <input type="radio" id="q3b" name="question3" value="B">
+                <label for="q3b">园中的美食</label><br>
+                <input type="radio" id="q3c" name="question3" value="C">
+                <label for="q3c">贾府的财富</label><br>
+                <input type="radio" id="q3d" name="question3" value="D">
+                <label for="q3d">园中的家具</label><br>
+                <button type="button" class="button" onclick="checkAnswer(3, 'B', 'completed')">提交答案</button>
+                <h2 id="error3" class="error hidden">答案错误，请重新作答！</h2>
+            </div>
+            
+            <div id="completed" class="page hidden">
+                <h1>恭喜你完成了问答！</h1>
+                <h2>谢谢你的参与。</h2>
+            </div>
+        </div>
+    </div>
+	 <div class="link-container">
+	        <a href="detu.html">返回地图</a>
+	</div>
 </body>
 </html>
