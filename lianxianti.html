@@ -7,14 +7,13 @@
 <style>
     html,body{
         overflow: hidden;
-         background: url('img/lianxian.png') no-repeat center center/cover;
+        background: url('img/lianxian.png') no-repeat center center/cover;
+
     }
     .container {
-        margin: 0 auto;1
+        margin: 0 auto;
         display: flex; /* 使用 Flexbox 布局 */
         height: 80vh; /* 设置容器高度为整个视口高度 */
-       width:1200px;
-     
     }
     .left-div{
         flex: 1; /* 平分左右两个div的宽度 */
@@ -31,36 +30,37 @@
     }
     .left-div button{
         background-color: rgb(193, 205, 188);
+
         border-radius: 10px;
         width:100px;
         border: none;
         margin: 10px;
         padding: 6px 10px 6px 10px;
-        font-size: 25px;
+        font-size: 20px;
         font-family: 幼圆;
         font-weight: 600;
         color: rgb(63, 72, 72);
     }
     .right-div button{
-        background-color:  rgb(193, 205, 188);
+        background-color: rgb(193, 205, 188);
         border-radius: 10px;
         border: none;
         margin: 12px;
         padding: 6px 10px 6px 10px;
-        font-size: 25px;
+        font-size: 20px;
         font-family: 幼圆;
         font-weight: 600;
         color: rgb(63, 72, 72);
     }
     button:hover{
-         background-color: rgb(237, 212, 208);
+        background-color: rgb(237, 212, 208);
         cursor: pointer;
     }
     .line {
     position: absolute;
     border: 1px solid black;
     pointer-events: none; /* 防止线条干扰按钮的点击事件 */
-    z-index: -1; /* 将线条置于按钮下方 */
+    z-index: 10; /* 将线条置于按钮下方 */
 }
 .correct-img, .incorrect-img {
             display: none; /* 初始隐藏 */
@@ -94,7 +94,7 @@
 </head>
 <body>
 <h1 style="text-align: center;">众人反应对应连线</h1>
-<p style="font-family: 华文仿宋;font-size:25px;font-weight: bolder;">   请先点击人物姓名，再点击人物反应。</p>
+<p style="font-family: 华文仿宋;">请先点击人物姓名，再点击人物反应。</p>
 <div class="container">
     <div class="left-div">
         <button>史湘云</button><br>
@@ -119,14 +119,12 @@
         <button>饭碗都合在迎春身上</button><br>
         <button>掌着，还只管让刘姥姥</button><br>
     </div>  
-
     <div class="centered-indicator">
         <img class="correct-img" src="img/correct.png" alt="Correct" style="display: none;">
         <img class="incorrect-img" src="img/incorrect.png" alt="Incorrect" style="display: none;">
     </div>
 </div>
 <div class="anniu"><button onclick="next()" style="font-family: 华文仿宋;font-size: 30px;font-weight: bolder;line-height: 50px;">结<br>束<br>答<br>题</button></div>
-
 <script>
 
  document.addEventListener("DOMContentLoaded", function() {
