@@ -12,21 +12,7 @@
             height: 100%;
             overflow: hidden;
         }
-        .video-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            background-color: #ffffff;
-        }
-        .video-container video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            
-            width: 80%;
-            height: auto;
-        }
+        
         .next-page-button {
           width: 150px;
           height: 100px;
@@ -52,16 +38,21 @@
         a{
           text-decoration: none;
         }
+        img{
+            width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 <body>
     <div class="video-container">
-        <video id="myVideo" autoplay muted>
-            <source src="https://github.com/tumulan/video/assets/147024840/84e8564d-74de-4ef2-a80f-95f90d1155c1" type="video/mp4" alt="刘姥姥进大观园">
-    
-        </video>
         
+        <img src="img/a.png">
     </div>
-    <a href="index1.html"><button id="nextPageButton" class="next-page-button">进入学习</button></a>
 </body>
+<script>
+    setTimeout(function() {
+        window.location.href = 'index1.html'; // 替换为你要跳转的页面地址
+      }, 5000); // 
+</script>
 </html>
