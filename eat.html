@@ -10,9 +10,13 @@
             overflow: hidden;
             width: 100%;
             height: 100%;
+			background:url("img/eat1.png");
+			background-size: cover;
+			background-repeat: no-repeat;
         }
     .mouth{
         width: 100%;
+		margin-top: 66px;
         height: 450px;
         display: flex;
         justify-content: center;
@@ -24,7 +28,7 @@
  }
  .egg{
     position: absolute;
-    top: 400px; /* Adjust as needed */
+    top: 466px; /* Adjust as needed */
     left: 48%; /* Center horizontally */
     width: 150px;
     z-index: 10;
@@ -99,7 +103,7 @@
     <div id="success-message"><img src="img/juanzhou.png" style="opacity: 0.7;">
         <div class="text">刘姥姥成功吃到鸽子蛋☺</div> <button onclick="again()">再吃一个</button><span>&nbsp;&nbsp;&nbsp;</span>
         <button onclick="next()">下一情节</button></div>
-        <p style="margin-left: 35%; font-family: 宋体;">游戏规则：点击鼠标，把鸽子蛋送到刘姥姥嘴里。</p>
+        <p style="margin-left: 22%; font-family: 宋体;font-size: 36px;">游戏规则：点击鼠标，把鸽子蛋送到刘姥姥嘴里。</p>
 
 </body>
 <script>
@@ -107,7 +111,7 @@
         const egg = document.querySelector('.egg');
             const mouth = document.querySelector('.mouth');
             const successMessage = document.getElementById('success-message');
-             egg.style.top = '300px'; 
+             egg.style.top = '340px'; 
              const centerX = window.innerWidth / 2;
             // Get positions
             const eggRect = egg.getBoundingClientRect();
@@ -123,7 +127,7 @@
             } else {
             // After 1 second, move the egg back to its original position
             setTimeout(function() {
-                egg.style.top = '400px'; // Move back to the original position
+                egg.style.top = '466px'; // Move back to the original position
             },500); // 1000 milliseconds = 1 second
         }
         });
