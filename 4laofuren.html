@@ -173,7 +173,7 @@
       
         <div class="dialogue-box" id="myDiv">
         	
-        	<button class="btn2" onclick="nextPage()">跳过</button>
+        	<button class="btn2" onclick="nextPage()" title="直接进入大观园">跳过</button>
         	<button class="btn1" onclick="nextStep()">下一步</button>
 
             
@@ -227,15 +227,18 @@
         "凤姐",
         ""
     ];
+    var div = document.getElementById('myDiv');
+        var paragraph = div.querySelector('.dialogue-text'); // 获取对话内容的 <p> 元素
+        var characterName = document.querySelector('.character-name'); // 获取角色名的元素
+        var choicesContainer = document.querySelector('.choices-container'); // 获取选择按钮容器
+        var buttons = div.querySelectorAll('button');
+        var firstButton = buttons[0];
+        var secondButton = buttons[1];
     function nextPage(){
             window.location.href = "zhuanchang.html";
         }
      function nextStep() {
      	
-        var div = document.getElementById('myDiv');
-        var paragraph = div.querySelector('.dialogue-text'); // 获取对话内容的 <p> 元素
-        var characterName = document.querySelector('.character-name'); // 获取角色名的元素
-        var choicesContainer = document.querySelector('.choices-container'); // 获取选择按钮容器
 
         if (currentIndex < texts.length) {
             paragraph.textContent = texts[currentIndex];
@@ -243,7 +246,7 @@
             currentIndex++;
             stepCount++;
         }
-
+        
         if (stepCount === 4) {
             // 当点击两次后显示选项1和选项2
             choicesContainer.innerHTML = `
@@ -251,7 +254,9 @@
                 <button class="choice2" onclick="chooseOption(2)">奉承贾母</button>
             `;
             choicesContainer.style.display = 'block';
-           
+
+  firstButton.style.display = 'none';
+  secondButton.style.display = 'none';
             
         } else if (stepCount === 8) {
             // 当点击四次后显示选项3和选项4
@@ -260,10 +265,10 @@
                <button class="choice2" onclick="chooseOption(4)">离开</button>
             `;
             choicesContainer.style.display = 'block';
-            
-        }
-        
 
+            firstButton.style.display = 'none';
+            secondButton.style.display = 'none';
+        }
         if (currentIndex >= texts.length) {
             // 如果已经显示完所有文本，隐藏下一步按钮
             div.querySelector('button').style.display = 'none';
@@ -273,7 +278,8 @@
     function chooseOption(option) {
         var paragraph = document.querySelector('.dialogue-text');
         var choicesContainer = document.querySelector('.choices-container');
-
+        firstButton.style.display = 'block';
+            secondButton.style.display = 'block';
         switch (option) {
             case 1:
               document.getElementById('keySound1').play();
@@ -285,9 +291,11 @@
                 break;
             case 3:
                 paragraph.textContent = "刘姥姥选择留下,刘姥姥吃了茶，便把些乡村中所见所闻的事情说给贾母听，贾母越发得了趣味……";
+                firstButton.style.display = 'none';
+            secondButton.style.display = 'none';
                 setTimeout(function() {
                 window.location.href = 'zhuanchang.html';
-            }, 3000); 
+            }, 2000); 
                 break;
             case 4:
                 paragraph.textContent = "刘姥姥选择离开";
