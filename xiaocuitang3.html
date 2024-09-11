@@ -172,7 +172,7 @@
         <div class="choices-container">
             <button class="choice" onclick="showNextText()">帮刘姥姥吃到蛋</button>
 
-            <audio id="keySound" src="刘姥姥音频"></audio>
+            <audio id="keySound" src="audio/yinzi.mp3"></audio>
             
         </div>
 
@@ -185,7 +185,7 @@
         "这定是凤丫头促狭鬼儿闹的！快别信他的话了。",
         "一两银子一个呢！你快尝尝罢，冷了就不好吃了。",
         "刘姥姥便伸筷子要夹，哪里夹的起来？满碗里闹了一阵，好容易撮起一个来，才伸着脖子要吃，偏又滑下来，滚在地下。忙放下筷子要亲自去拣，早有地下的人拣出去了。",
-        "一两银子，也没听见响声儿就没了！"
+        "这一两银子，还也没听见响声儿呢，就没了！"
      ];
 
     var currentIndex = 0; // 当前文本数组的索引
@@ -214,7 +214,9 @@
             currentIndex++;
             stepCount++;
         }
-
+        if(currentIndex==4){
+            document.getElementById('keySound').play();
+        }
         
         if (currentIndex >= texts.length) {
             // 显示选择按钮容器

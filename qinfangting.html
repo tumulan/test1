@@ -85,9 +85,12 @@
             top:50%;
             font-size: 25px;
             padding: 5px;
-            border-radius: 5px;
+            border:none;
             cursor: pointer;
             text-align: center;
+            border-radius: 8px;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3), -4px -4px 8px rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
             transition: background 0.3s;
             margin: 10px 0; /* Add vertical spacing between choices */
         }
@@ -95,7 +98,13 @@
         
         .choice:hover {
             opacity: 1;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2), -4px -4px 8px rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
         }
+       .choice:active{
+        box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.4);
+            transform: translateY(2px);
+       }
        
         .character {
             position: absolute;
@@ -156,16 +165,16 @@
         <div class="choices-container">
             <button class="choice" onclick="showNextText()">点击为刘姥姥簪花</button>
 
-            <audio id="keySound" src="刘姥姥音频"></audio>
-            
+            <audio id="keySound1" src="audio/daihua.mp3"></audio>
+            <audio id="keySound2" src="audio/daban.mp3"></audio>
         </div>
     </div>
 
     <script>
         
     var texts = [
-           "（笑）过来带花儿。",
-           "（笑）让我打扮你。"
+           "（笑）来，快过来带花儿。",
+           "（笑）来我打扮你。"
         ];
 
         var currentIndex = 0; // 当前文本数组的索引
@@ -195,29 +204,17 @@
             secondButton.style.display = 'none';
      
         }
+        if(currentIndex==1){
+            document.getElementById('keySound1').play();
         }
-
-        function showNextText() {
-        var paragraph = document.querySelector('.dialogue-text'); // 获取对话内容的 <p> 元素
-
-        // 点击按钮显示另一段文本，这里示例直接显示下一段文本
-        if (currentIndex < texts.length) {
-            paragraph.textContent = "点击按钮后显示的另一段文本。";
-            currentIndex++; // 这里可以根据实际需要更新索引
+        if(currentIndex==2){
+            document.getElementById('keySound2').play();
         }
-
-        // 播放音频并在5秒后跳转页面
-        var audio = document.getElementById('keySound');
-        if (audio) {
-            audio.src = 'click_1.mp3'; // 设置音频文件路径
-            audio.play();
-
-            // 延迟5秒后跳转页面
-            setTimeout(function() {
-                window.location.href = 'zanhua.html'; // 要跳转的页面地址
-            }, 500); // 延迟5秒
         }
-    }
+function showNextText(){
+    window.location.href = 'zanhua.html';
+}
+
     </script>
 </body>
 </html>

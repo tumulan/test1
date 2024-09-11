@@ -164,7 +164,7 @@
         <div class="choices-container">
             <button class="choice" onclick="showNextText()">众人反应对应连线</button>
 
-            <audio id="keySound" src="刘姥姥音频"></audio>
+            <audio id="keySound" src="audio/laoniu.mp3"></audio>
             
         </div>
 
@@ -180,7 +180,7 @@
         "这个叉巴子，比我们那里铁掀还沉，哪里拿的动他？",
         "说的众人都笑起来。只见一个媳妇端了一个盒子站在当地，一个丫鬟上来揭去盒盖，里面盛着两碗菜，李纨端了一碗放在贾母桌上，凤姐儿偏拣了一碗鸽子蛋放在刘姥姥桌上。",
         "请",
-        "老刘，老刘，食量大似牛：吃个老母猪，不抬头！",
+        "老刘，老刘，食量大如牛：吃个老母猪，不抬头！",
         "众人先还发怔，后来一想，上上下下都哈哈大笑起来。"
      ];
 
@@ -215,7 +215,9 @@
             currentIndex++;
             stepCount++;
         }
-
+        if(currentIndex==7){
+            document.getElementById('keySound').play();
+        }
         
         if (currentIndex >= texts.length) {
             // 显示选择按钮容器
