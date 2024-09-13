@@ -4,7 +4,37 @@ html,body {
     overflow: hidden;
   }
   
-  
+  #btn{
+    border: 2px solid #ccc; /* 边框 */
+         color: #333; /* 文字颜色 */
+         padding: 10px 20px; /* 内边距 */
+         text-align: center; /* 文字居中 */
+         text-decoration: none; /* 5掉下划线 */
+         display: inline-block; /* 行内块元素 */
+         font-size: 16px; /* 字体大小 */
+         margin: 4px 2px; /* 外边距 */
+         cursor: pointer; /* 鼠标指针 */
+         border-radius: 8px; /* 圆角 */
+         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), inset 0 1px 2px rgba(255, 255, 255, 0.8); /* 外阴影和内阴影 */
+         transition: all 0.3s ease; /* 动画效果 */
+   position:absolute;
+   top:75%;
+   left:80%;
+   font-size:30px;
+ 
+   background-color:#fae0c2;
+   
+   
+ }
+  #btn:hover {
+         box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2), inset 0 1px 3px rgba(255, 255, 255, 0.6); /* 鼠标悬停时的阴影效果 */
+     }
+
+     #btn:active {
+         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.6); /* 鼠标点击时的阴影效果 */
+         transform: translateY(2px); /* 点击按钮时的位移效果 */
+     }
+
   .main-content {
     margin: 4em auto;
     max-width: 900px;
