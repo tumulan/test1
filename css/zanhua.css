@@ -541,13 +541,7 @@ html,body {
 
   
   .emoji-choice__item[data-name="no-hat"]{
-    background-image: none;
-  }
-.emoji-choice__item[data-name="no-hat"]:before{
-    content: "\29BB";
-    font-size: 40px;
-    color: #bbb;
-    margin: 15px 18px;
+     background: url('no-hat.png') no-repeat center center/cover;
   }
 
   .selected {
